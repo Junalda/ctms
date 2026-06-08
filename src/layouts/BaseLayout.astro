@@ -21,6 +21,11 @@ const {
 // Canonical-URL op basis van de huidige route + het in astro.config.mjs
 // ingestelde `site`-domein.
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+// Alleen de productie-build (Vercel `VERCEL_ENV=production`) mag geïndexeerd
+// worden. Preview/staging en lokale builds krijgen `noindex`, zodat Google de
+// testomgeving niet oppikt.
+const isProduction = process.env.VERCEL_ENV === 'production';
 ---
 
 <!doctype html>
@@ -36,6 +41,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     />
     <meta name="author" content="Gabriel — Capture the Moment Solutions" />
     <link rel="icon" type="image/svg+xml" href="/placeholder.svg" />
+    {!isProduction && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="nl-nl" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
