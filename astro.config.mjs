@@ -3,9 +3,10 @@ import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import sitemap from '@astrojs/sitemap';
 
-// Productiedomein — pas dit aan naar de uiteindelijke URL van de site.
-// Wordt gebruikt voor sitemap, canonical-URL's en hreflang.
-const SITE = 'https://www.capturethemoment.nl';
+// Domein per omgeving. Standaard het productiedomein; op Vercel kun je
+// PUBLIC_SITE_URL per environment overschrijven (Preview = staging-URL,
+// Production = live domein). Voedt sitemap, canonical-URL's en hreflang.
+const SITE = process.env.PUBLIC_SITE_URL ?? 'https://www.capturethemoment.nl';
 
 // https://astro.build/config
 export default defineConfig({
