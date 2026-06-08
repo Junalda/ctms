@@ -1,0 +1,260 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { BOOKING_URL, WHATSAPP_URL, CRM_SUBSCRIBE_URL } from '@/lib/booking';
+
+const callPoints = [
+  { i: 'lucide:clock', l: '30 minuten' },
+  { i: 'lucide:video', l: 'Google Meet' },
+  { i: 'lucide:globe', l: 'Jouw tijdzone' },
+  { i: 'lucide:calendar', l: 'Auto-bevestigd' },
+];
+
+const agenda = [
+  { n: '01', t: 'Je doelgroep & positie', d: 'Wie je bedient en wat jou de logische keuze maakt.' },
+  { n: '02', t: 'De visuele kloof', d: 'Waar je huidige content achterblijft bij je ambitie.' },
+  { n: '03', t: 'Een concrete vervolgstap', d: 'Eén bruikbare aanbeveling — ook als we nooit samenwerken.' },
+];
+
+const promises = [
+  'Reactie binnen één werkdag',
+  'Eerlijke match — niet elk merk past bij ons',
+  'Gratis strategiegesprek van 30 min voordat je iets vastlegt',
+  'Vaste tarieven, geen verrassingsfacturen',
+];
+
+const serviceOptions = ['Vastgoed', 'Personal branding', 'Merkverhalen', 'Content retainer', 'Nog niet zeker'];
+const budgetOptions = ['Onder €1K', '€1K – €2,5K', '€2,5K – €5K', '€5K – €10K', '€10K+'];
+---
+
+<BaseLayout
+  title="Contact — Plan een gesprek met Gabriel | Capture the Moment Solutions"
+  description="Plan een gratis strategiegesprek van 30 minuten met Gabriel of stuur een bericht. Rotterdam en de hele Randstad."
+>
+  <section class="pt-40 pb-12 bg-black">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Contact</div>
+      <h1 class="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight max-w-5xl">
+        Laten we praten over<br />
+        <span class="italic font-light">wat je bouwt.</span>
+      </h1>
+      <p class="mt-8 max-w-2xl text-lg text-white/60 font-light">
+        De snelste manier om te starten: plan een gesprek van 30 minuten met Gabriel. Geen verplichtingen, gewoon een echt gesprek over je visuele strategie.
+      </p>
+    </div>
+  </section>
+
+  {/* ============= BOEKINGSKAART — PRIMAIRE ROUTE ============= */}
+  <section class="bg-black pb-20">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="relative overflow-hidden border border-[#D4AF37]/30 bg-gradient-to-br from-zinc-950 to-black">
+        <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: radial-gradient(circle at 20% 30%, #D4AF37 0%, transparent 50%)"></div>
+        <div class="relative grid lg:grid-cols-12 gap-10 p-8 md:p-12 lg:p-16">
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-[#D4AF37]/30 mb-8">
+              <span class="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
+              <span class="text-[10px] tracking-[0.3em] uppercase text-[#D4AF37]">Live agenda · echte slots</span>
+            </div>
+            <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
+              Plan een strategiegesprek<br />
+              <span class="italic font-light">van 30 minuten.</span>
+            </h2>
+            <p class="mt-6 text-white/60 font-light text-lg max-w-lg leading-relaxed">
+              Kies een tijd die jou uitkomt. Gabriel sluit aan via Google Meet — volledig voorbereid, met een paar ideeën al afgestemd op jouw situatie.
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-10 max-w-xl">
+              {callPoints.map((x) => (
+                <div class="flex flex-col items-start gap-2">
+                  <Icon name={x.i} width={16} height={16} stroke-width="1.25" class="text-[#D4AF37]" />
+                  <span class="text-[11px] tracking-[0.15em] uppercase text-white/60">{x.l}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="mt-10 flex flex-wrap items-center gap-4">
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 px-10 py-5 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+                Kies een tijd <Icon name="lucide:arrow-up-right" width={16} height={16} class="group-hover:rotate-45 transition-transform" />
+              </a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="inline-flex items-center gap-3 text-white/70 hover:text-[#D4AF37] text-[12px] tracking-[0.2em] uppercase">
+                Of stuur een bericht via WhatsApp →
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 lg:border-l lg:border-white/10 lg:pl-12">
+            <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-6">Wat we bespreken</div>
+            <ol class="space-y-5">
+              {agenda.map((s) => (
+                <li class="flex gap-4">
+                  <div class="font-mono text-xs text-[#D4AF37] tracking-widest pt-1">{s.n}</div>
+                  <div>
+                    <div class="font-serif text-lg text-white">{s.t}</div>
+                    <div class="text-sm text-white/50 font-light leading-relaxed mt-1">{s.d}</div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div class="mt-8 pt-8 border-t border-white/10 text-xs text-white/40 font-light leading-relaxed">
+              De boeking opent in een nieuw tabblad. Je ontvangt direct een bevestigingsmail met de Google Meet-link en een agenda-uitnodiging in jouw tijdzone.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ============= SECUNDAIR: BERICHTFORMULIER + INFO ============= */}
+  <section class="bg-black pb-32">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-16">
+        <div class="text-[11px] tracking-[0.4em] uppercase text-white/40 mb-4">Liever eerst schrijven?</div>
+        <h2 class="font-serif text-4xl md:text-5xl">Stuur in plaats daarvan een bericht.</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-16">
+        {/* Links — info */}
+        <div class="lg:col-span-5 space-y-12">
+          <div>
+            <div class="text-[11px] tracking-[0.4em] uppercase text-white/40 mb-4">Een paar beloftes</div>
+            <ul class="space-y-3 text-white/70 font-light">
+              {promises.map((p) => (
+                <li class="flex items-start gap-3"><Icon name="lucide:check" width={16} height={16} class="text-[#D4AF37] mt-1 flex-shrink-0" />{p}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="space-y-5 border-t border-white/10 pt-8">
+            <a href="mailto:hello@capturethemoment.nl" class="flex items-start gap-4 group">
+              <Icon name="lucide:mail" width={18} height={18} class="text-[#D4AF37] mt-1" />
+              <div>
+                <div class="text-[10px] tracking-[0.3em] uppercase text-white/40">E-mail</div>
+                <div class="text-white group-hover:text-[#D4AF37] transition-colors">hello@capturethemoment.nl</div>
+              </div>
+            </a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="flex items-start gap-4 group">
+              <Icon name="lucide:message-circle" width={18} height={18} class="text-[#D4AF37] mt-1" />
+              <div>
+                <div class="text-[10px] tracking-[0.3em] uppercase text-white/40">WhatsApp</div>
+                <div class="text-white group-hover:text-[#D4AF37] transition-colors">+31 6 00 00 00 00 — snelste reactie</div>
+              </div>
+            </a>
+            <div class="flex items-start gap-4">
+              <Icon name="lucide:phone" width={18} height={18} class="text-[#D4AF37] mt-1" />
+              <div>
+                <div class="text-[10px] tracking-[0.3em] uppercase text-white/40">Telefoon</div>
+                <div class="text-white">+31 (0)10 000 00 00</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <Icon name="lucide:map-pin" width={18} height={18} class="text-[#D4AF37] mt-1" />
+              <div>
+                <div class="text-[10px] tracking-[0.3em] uppercase text-white/40">Studio</div>
+                <div class="text-white">Rotterdam · NL</div>
+                <div class="text-white/50 text-sm mt-1">Actief in de Randstad: Rotterdam · Den Haag · Amsterdam · Utrecht · Delft</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="aspect-[4/3] overflow-hidden border border-white/10">
+            <iframe
+              title="Studio Rotterdam"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=4.42%2C51.89%2C4.55%2C51.95&layer=mapnik"
+              class="w-full h-full grayscale invert opacity-90"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
+        {/* Rechts — formulier */}
+        <div class="lg:col-span-7 lg:pl-8">
+          <div id="contact-success" class="border border-[#D4AF37] p-12 text-center hidden">
+            <div class="w-16 h-16 rounded-full border border-[#D4AF37] mx-auto flex items-center justify-center mb-6"><Icon name="lucide:check" class="text-[#D4AF37]" /></div>
+            <h2 class="font-serif text-4xl mb-4">Bericht ontvangen.</h2>
+            <p class="text-white/60 font-light mb-8">Gabriel reageert persoonlijk binnen één werkdag. Tot die tijd — welkom in de studio.</p>
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+              Of plan nu een gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} />
+            </a>
+          </div>
+
+          <form id="contact-form" class="space-y-8">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="text-[11px] tracking-[0.3em] uppercase text-white/40" for="cf-name">Je naam<span class="text-[#D4AF37]"> *</span></label>
+                <input id="cf-name" name="name" type="text" required class="w-full mt-3 bg-transparent border-b border-white/20 focus:border-[#D4AF37] py-3 text-white outline-none transition-colors font-light" />
+              </div>
+              <div>
+                <label class="text-[11px] tracking-[0.3em] uppercase text-white/40" for="cf-email">E-mail<span class="text-[#D4AF37]"> *</span></label>
+                <input id="cf-email" name="email" type="email" required class="w-full mt-3 bg-transparent border-b border-white/20 focus:border-[#D4AF37] py-3 text-white outline-none transition-colors font-light" />
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] tracking-[0.3em] uppercase text-white/40" for="cf-company">Bedrijf / makelaarskantoor (optioneel)</label>
+              <input id="cf-company" name="company" type="text" class="w-full mt-3 bg-transparent border-b border-white/20 focus:border-[#D4AF37] py-3 text-white outline-none transition-colors font-light" />
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="text-[11px] tracking-[0.3em] uppercase text-white/40" for="cf-service">Dienst van interesse</label>
+                <select id="cf-service" name="service" class="w-full mt-3 bg-transparent border-b border-white/20 focus:border-[#D4AF37] py-3 text-white outline-none transition-colors font-light cursor-pointer">
+                  {serviceOptions.map((o) => <option value={o} class="bg-black text-white">{o}</option>)}
+                </select>
+              </div>
+              <div>
+                <label class="text-[11px] tracking-[0.3em] uppercase text-white/40" for="cf-budget">Geschat budget</label>
+                <select id="cf-budget" name="budget" class="w-full mt-3 bg-transparent border-b border-white/20 focus:border-[#D4AF37] py-3 text-white outline-none transition-colors font-light cursor-pointer">
+                  {budgetOptions.map((o) => <option value={o} class="bg-black text-white">{o}</option>)}
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] tracking-[0.3em] uppercase text-white/40" for="cf-message">Vertel ons over je project</label>
+              <textarea id="cf-message" name="message" rows="5" class="w-full mt-3 bg-transparent border-b border-white/20 focus:border-[#D4AF37] py-3 text-white outline-none transition-colors font-light" placeholder="Wat ben je aan het bouwen? Hoe ziet succes eruit?"></textarea>
+            </div>
+            <div class="flex flex-wrap items-center gap-4">
+              <button id="contact-submit" type="submit" class="inline-flex items-center gap-3 px-10 py-5 bg-white text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-[#D4AF37] transition-colors disabled:opacity-50">
+                <span id="contact-submit-label">Verstuur bericht</span> <Icon name="lucide:arrow-up-right" width={16} height={16} />
+              </button>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="text-white/60 hover:text-[#D4AF37] text-[12px] tracking-[0.2em] uppercase">
+                Of sla over — plan een gesprek →
+              </a>
+            </div>
+            <p class="text-xs text-white/40 font-light">Door te versturen ga je ermee akkoord dat we contact opnemen over je aanvraag. We delen je gegevens nooit.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ CRM_SUBSCRIBE_URL }}>
+  // Contactformulier — POST naar het CRM en toon daarna de bevestiging.
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('contact-success');
+  const submit = document.getElementById('contact-submit');
+  const label = document.getElementById('contact-submit-label');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const service = document.getElementById('cf-service').value;
+    if (!name || !email) return;
+
+    submit.disabled = true;
+    if (label) label.textContent = 'Versturen...';
+    try {
+      await fetch(CRM_SUBSCRIBE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          name,
+          source: 'contact-form',
+          tags: ['lead', 'consultation-request', service.toLowerCase().replace(/\s/g, '-')],
+        }),
+      });
+    } catch (err) { /* stil falen — UX gaat door */ }
+    form.classList.add('hidden');
+    success?.classList.remove('hidden');
+  });
+</script>

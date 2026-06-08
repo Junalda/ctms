@@ -1,0 +1,216 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { IMG } from '@/lib/images';
+
+const packages = [
+  { name: 'Essentials', price: '€595', desc: 'Voor losse listings onder €750K', features: ['25 bewerkte foto’s', 'Verticale reel van 60s', 'Schemeropname exterieur (1)', 'Levering binnen dezelfde week', 'Klaar voor plattegrond'] },
+  { name: 'Signature', price: '€1.250', desc: 'Voor premiumpanden €750K – €2M', popular: true, features: ['45 bewerkte foto’s', 'Cinematische film van 90s', 'Drone-luchtbeelden (4K)', 'Schemer- & dageraadserie', 'Lifestyle-stagingbeelden', 'Levering binnen 48 uur'] },
+  { name: 'Collector', price: 'Op aanvraag', desc: 'Voor landgoederen, nieuwbouw en projecten', features: ['Onbeperkte fotoselectie', 'Door regisseur geleide film (2–3 min)', 'Lucht + interieur met gimbal', 'Custom soundscape', 'Assets voor de listingsite', 'Pers-klaar pakket'] },
+];
+
+const faqs = [
+  { q: 'Hoe snel leveren jullie?', a: 'Essentials-pakketten worden binnen vijf werkdagen geleverd. Signature-shoots leveren we binnen 48 uur. Collector-projecten volgen een op maat afgesproken planning.' },
+  { q: 'Werken jullie buiten Rotterdam?', a: 'Ja — we dekken de hele Randstad (Rotterdam, Den Haag, Amsterdam, Utrecht en Delft) zonder reistoeslag. Daarbuiten offreren we per project.' },
+  { q: 'Kunnen jullie bewoonde woningen fotograferen?', a: 'Absoluut. We brengen lichte styling mee, ruimen ter plekke op en regisseren de shoot zodat een bewoond huis aanvoelt als een redactionele reportage.' },
+  { q: 'Verzorgen jullie dronewerk?', a: 'Ja — volledig verzekerd, met een CAA-NL-gecertificeerde piloot. Inbegrepen bij de Signature- en Collector-pakketten.' },
+  { q: 'Leveren jullie plattegronden?', a: 'We werken samen met een meetstudio voor 2D- en 3D-plattegronden binnen 72 uur na de shoot — beschikbaar als add-on.' },
+  { q: 'Wat als het weer slecht is?', a: 'Schemer- en buitenopnames zijn weersafhankelijk en worden kosteloos verzet. We volgen de weersverwachting 48 uur vooruit en plannen proactief om.' },
+];
+
+const proof = [
+  { v: '40%', l: 'Sneller verkocht' },
+  { v: '3,2×', l: 'Meer aanvragen per listing' },
+  { v: '120+', l: 'Panden geschoten in 2025' },
+  { v: '48u', l: 'Gemiddelde levering' },
+];
+
+const economics = [
+  { i: 'lucide:clock', t: 'Tijd op de markt', d: 'Professioneel gefotografeerde listings gaan 40% sneller op Funda en MLS-portalen.' },
+  { i: 'lucide:trending-up', t: 'Vraagprijs', d: 'Premiumbeelden ondersteunen een 2–7% hogere vraagprijs — en beschermen die in de onderhandeling.' },
+  { i: 'lucide:users', t: 'Gekwalificeerde leads', d: 'De juiste kopers klikken. De verkeerde haken vanzelf af. Minder verspilde bezichtigingen.' },
+  { i: 'lucide:award', t: 'Positionering makelaar', d: 'Je listings worden meteen een wervingsmiddel voor de volgende verkoper.' },
+];
+---
+
+<BaseLayout
+  title="Vastgoedfotografie & -video Rotterdam | Capture the Moment Solutions"
+  description="Cinematische vastgoedfotografie en -videografie die gekwalificeerde kopers aantrekt, hogere vraagprijzen ondersteunt en sneller verkoopt. Rotterdam & de Randstad."
+>
+  {/* Hero */}
+  <section class="relative pt-40 pb-20 bg-black overflow-hidden">
+    <div class="absolute inset-0 opacity-40">
+      <img src={IMG.realEstate[1]} alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black"></div>
+    </div>
+    <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Vastgoed · Rotterdam & de Randstad</div>
+      <h1 class="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight max-w-5xl">
+        Listings die<br />
+        <span class="italic font-light">zichzelf verkopen.</span>
+      </h1>
+      <p class="mt-10 max-w-2xl text-lg md:text-xl text-white/70 font-light">
+        Cinematische vastgoedfotografie en -videografie, gemaakt om gekwalificeerde kopers aan te trekken, hogere vraagprijzen te ondersteunen en in minder dagen te verkopen.
+      </p>
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="/contact" class="inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+          Boek een shoot <Icon name="lucide:arrow-up-right" width={16} height={16} />
+        </a>
+        <a href="#packages" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white text-[12px] tracking-[0.2em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37]">Bekijk pakketten</a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t border-white/10">
+        {proof.map((s) => (
+          <div>
+            <div class="font-serif text-5xl text-[#D4AF37]">{s.v}</div>
+            <div class="text-xs tracking-[0.2em] uppercase text-white/50 mt-2">{s.l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Voor / na */}
+  <section class="bg-white text-black py-32">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="max-w-2xl mb-12">
+        <div class="text-[11px] tracking-[0.4em] uppercase text-[#9C7C2A] mb-6">Het verschil</div>
+        <h2 class="font-serif text-5xl md:text-6xl leading-tight">Voor. Na.</h2>
+        <p class="mt-6 text-zinc-600 font-light text-lg">Sleep de schuif. Dezelfde kamer, twee listings. Maar één ervan krijgt een bezichtiging geboekt.</p>
+      </div>
+
+      <div class="relative aspect-[16/9] overflow-hidden bg-zinc-900 select-none">
+        <img src={IMG.realEstate[2]} alt="Na" class="absolute inset-0 w-full h-full object-cover" />
+        <div id="ba-overlay" class="absolute inset-0 overflow-hidden" style="width: 50%">
+          <img id="ba-before" src={IMG.realEstate[3]} alt="Voor" class="absolute inset-0 w-full h-full object-cover grayscale brightness-75" style="width: 200%" />
+        </div>
+        <div id="ba-divider" class="absolute top-0 bottom-0 w-px bg-white shadow-2xl pointer-events-none" style="left: 50%">
+          <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-2 border-[#D4AF37] flex items-center justify-center">
+            <div class="flex gap-0.5"><div class="w-1 h-4 bg-[#D4AF37]"></div><div class="w-1 h-4 bg-[#D4AF37]"></div></div>
+          </div>
+        </div>
+        <div class="absolute top-6 left-6 bg-black/70 text-white text-[10px] tracking-[0.3em] uppercase px-3 py-1.5">Voor — Smartphone</div>
+        <div class="absolute top-6 right-6 bg-[#D4AF37] text-black text-[10px] tracking-[0.3em] uppercase px-3 py-1.5">Na — Studio</div>
+        <input id="ba-range" type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize" aria-label="Voor/na-schuif" />
+      </div>
+    </div>
+  </section>
+
+  {/* Waarom het ertoe doet */}
+  <section class="bg-black py-32">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="max-w-2xl mb-16">
+        <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">Waarom dit ertoe doet</div>
+        <h2 class="font-serif text-5xl md:text-6xl leading-tight">De economie van een goede foto.</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {economics.map((b) => (
+          <div class="border-t border-white/10 pt-6">
+            <Icon name={b.i} width={20} height={20} stroke-width="1.25" class="text-[#D4AF37] mb-6" />
+            <h3 class="font-serif text-2xl mb-3">{b.t}</h3>
+            <p class="text-white/60 text-sm font-light leading-relaxed">{b.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Pakketten */}
+  <section id="packages" class="bg-zinc-950 py-32 border-t border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">Tarieven</div>
+        <h2 class="font-serif text-5xl md:text-6xl leading-tight">Eerlijke pakketten. Geen verrassingen.</h2>
+        <p class="mt-6 text-white/60 font-light text-lg">Alle pakketten zijn inclusief licentie voor marketing, social en listingportalen.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-px bg-white/5">
+        {packages.map((p) => (
+          <div class={`bg-zinc-950 p-10 lg:p-12 flex flex-col ${p.popular ? 'ring-1 ring-[#D4AF37] relative' : ''}`}>
+            {p.popular && <div class="absolute -top-3 left-10 bg-[#D4AF37] text-black text-[10px] tracking-[0.3em] uppercase px-3 py-1">Meest geboekt</div>}
+            <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-4">{p.desc}</div>
+            <h3 class="font-serif text-4xl mb-2">{p.name}</h3>
+            <div class="font-serif text-5xl text-[#D4AF37] mb-8">{p.price}</div>
+            <ul class="space-y-3 mb-10 flex-1">
+              {p.features.map((f) => (
+                <li class="flex items-start gap-3 text-sm text-white/70 font-light">
+                  <Icon name="lucide:check" width={16} height={16} class="text-[#D4AF37] mt-0.5 flex-shrink-0" />{f}
+                </li>
+              ))}
+            </ul>
+            <a href="/contact" class={`text-center px-6 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-colors ${p.popular ? 'bg-[#D4AF37] text-black hover:bg-white' : 'border border-white/20 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]'}`}>Reserveren</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* FAQ */}
+  <section class="bg-black py-32">
+    <div class="max-w-[1000px] mx-auto px-6 lg:px-10">
+      <div class="mb-16">
+        <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">Vragen</div>
+        <h2 class="font-serif text-5xl md:text-6xl">Wat makelaars altijd vragen.</h2>
+      </div>
+      <div class="divide-y divide-white/10 border-t border-b border-white/10">
+        {faqs.map((f, i) => (
+          <button data-faq={i} class="w-full text-left py-8 flex items-start justify-between gap-8 hover:text-[#D4AF37] transition-colors">
+            <div class="flex-1">
+              <h3 class="font-serif text-2xl md:text-3xl">{f.q}</h3>
+              <p data-faq-answer class={`mt-5 text-white/60 font-light text-base leading-relaxed ${i === 0 ? '' : 'hidden'}`}>{f.a}</p>
+            </div>
+            <div class="text-[#D4AF37] mt-2">
+              <Icon name="lucide:minus" data-faq-minus width={20} height={20} class={i === 0 ? '' : 'hidden'} />
+              <Icon name="lucide:plus" data-faq-plus width={20} height={20} class={i === 0 ? 'hidden' : ''} />
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* CTA */}
+  <section class="relative py-32 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src={IMG.realEstate[0]} alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/80"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-6 text-center">
+      <h2 class="font-serif text-5xl md:text-7xl leading-tight">Een listing<br /><span class="italic font-light">die het tonen waard is?</span></h2>
+      <a href="/contact" class="mt-10 inline-flex items-center gap-3 px-10 py-5 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+        Boek je shoot <Icon name="lucide:arrow-up-right" width={16} height={16} />
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Voor/na-schuif (was een React useState-slider).
+  const range = document.getElementById('ba-range');
+  const overlay = document.getElementById('ba-overlay');
+  const before = document.getElementById('ba-before');
+  const divider = document.getElementById('ba-divider');
+  range?.addEventListener('input', () => {
+    const v = Number(range.value);
+    if (overlay) overlay.style.width = `${v}%`;
+    if (before) before.style.width = `${100 / (v / 100)}%`;
+    if (divider) divider.style.left = `${v}%`;
+  });
+
+  // FAQ-accordeon — open één item tegelijk, het eerste staat standaard open.
+  const buttons = Array.from(document.querySelectorAll('[data-faq]'));
+  let openFaq = 0;
+  buttons.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      openFaq = openFaq === i ? -1 : i;
+      buttons.forEach((b, j) => {
+        const answer = b.querySelector('[data-faq-answer]');
+        const minus = b.querySelector('[data-faq-minus]');
+        const plus = b.querySelector('[data-faq-plus]');
+        const on = j === openFaq;
+        answer?.classList.toggle('hidden', !on);
+        minus?.classList.toggle('hidden', !on);
+        plus?.classList.toggle('hidden', on);
+      });
+    });
+  });
+</script>

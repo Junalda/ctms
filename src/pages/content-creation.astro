@@ -1,0 +1,157 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { IMG } from '@/lib/images';
+
+const framework = [
+  { n: '01', t: 'Positie', d: 'We bepalen de niche, het onderscheid en de boodschap die alleen jij kunt claimen.' },
+  { n: '02', t: 'Pijlers', d: 'Drie tot vijf contentpijlers die geloofwaardigheid opbouwen in plaats van viraliteit najagen.' },
+  { n: '03', t: 'Productie', d: 'Maandelijkse cinematische opnamedagen — een kwartaal aan content in één gerichte sessie.' },
+  { n: '04', t: 'Prestatie', d: 'We meten inbound, geen impressies. Content gekoppeld aan omzet, niet aan ijdelheid.' },
+];
+
+const retainerFeatures = [
+  'Strategiegesprek + maandelijkse contentkalender',
+  'Eén volledige productiedag op jouw locatie (of de onze)',
+  '4–6 cinematische short-form video’s per maand',
+  '20+ redactionele beelden per maand',
+  'Elk kwartaal een langere merkfilm',
+  'Prestatie-evaluatie + bijsturing per kwartaal',
+];
+
+const stats = [
+  { v: '6mnd+', l: 'Minimale samenwerking' },
+  { v: '1 dag', l: 'Maandelijkse productie' },
+  { v: '24', l: 'Assets per kwartaal' },
+];
+---
+
+<BaseLayout
+  title="Personal branding & content — Een storytellingpartner | Capture the Moment Solutions"
+  description="Voor oprichters, creators en ambitieuze professionals die een merk bouwen dat het waard is om te volgen. De Trust Compounding Method™."
+>
+  {/* Hero */}
+  <section class="relative pt-40 pb-24 bg-black overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+      <img src={IMG.branding[1]} alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black"></div>
+    </div>
+    <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Personal branding & content</div>
+      <h1 class="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight max-w-5xl">
+        Geen videograaf.<br />
+        <span class="italic font-light">Een storytellingpartner.</span>
+      </h1>
+      <p class="mt-10 max-w-2xl text-lg md:text-xl text-white/70 font-light">
+        Voor oprichters, creators en ambitieuze professionals die een merk bouwen dat het volgen waard blijft — lang nadat de trendcyclus verder is getrokken.
+      </p>
+    </div>
+  </section>
+
+  {/* Manifest */}
+  <section class="bg-white text-black py-32">
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 text-center">
+      <p class="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.25] italic text-zinc-800">
+        "De meeste creators runnen een contentfabriek. Wij bouwen een content<span class="not-italic text-[#9C7C2A]">portfolio</span> — assets die jarenlang voor je werken, niet dagenlang."
+      </p>
+    </div>
+  </section>
+
+  {/* Framework */}
+  <section class="bg-black py-32">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-12 gap-12 mb-20">
+        <div class="lg:col-span-5">
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">Het raamwerk</div>
+          <h2 class="font-serif text-5xl md:text-6xl leading-tight">De Trust Compounding Method.™</h2>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7 flex items-end">
+          <p class="text-lg text-white/60 font-light leading-relaxed">Een herhaalbaar systeem om wie je bent te veranderen in een merk dat de juiste mensen onthouden en doorverwijzen.</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
+        {framework.map((p) => (
+          <div class="bg-black p-10 min-h-[280px]">
+            <div class="font-mono text-xs text-[#D4AF37] mb-8">{p.n}</div>
+            <h3 class="font-serif text-3xl mb-4">{p.t}</h3>
+            <p class="text-white/60 text-sm font-light leading-relaxed">{p.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Retainer */}
+  <section class="bg-zinc-950 py-32 border-y border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-12 gap-16 items-center">
+        <div class="lg:col-span-6">
+          <div class="aspect-[4/5] overflow-hidden">
+            <img src={IMG.branding[3]} alt="Merkportret" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="lg:col-span-6">
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">Het retainermodel</div>
+          <h2 class="font-serif text-5xl md:text-6xl leading-tight mb-8">Eén opnamedag. Een kwartaal aan content.</h2>
+          <p class="text-white/70 text-lg font-light leading-relaxed mb-8">
+            Onze retainerklanten brengen één zorgvuldig geregisseerde dag per maand met ons door. We vertrekken met 12–20 deliverables: langere films, portretbeelden, verticale reels, podcast-b-roll en merkbeeld — allemaal on-message, allemaal cinematisch, allemaal klaar om te publiceren.
+          </p>
+          <ul class="space-y-3 mb-10">
+            {retainerFeatures.map((f) => (
+              <li class="flex items-start gap-3 text-white/80 font-light">
+                <Icon name="lucide:check" width={16} height={16} class="text-[#D4AF37] mt-1.5 flex-shrink-0" />{f}
+              </li>
+            ))}
+          </ul>
+          <div class="flex items-end gap-4 mb-8">
+            <div>
+              <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-1">Vanaf</div>
+              <div class="font-serif text-5xl text-[#D4AF37]">€2.950</div>
+            </div>
+            <div class="text-white/40 text-sm pb-2">/ maand · minimaal 6 maanden</div>
+          </div>
+          <a href="/contact" class="inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+            Aanmelden voor de retainer <Icon name="lucide:arrow-up-right" width={16} height={16} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Filosofie */}
+  <section class="bg-black py-32">
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10">
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Denken op lange termijn</div>
+      <h2 class="font-serif text-5xl md:text-6xl leading-tight mb-12">We optimaliseren niet<br />voor volgende week.</h2>
+      <div class="grid md:grid-cols-2 gap-12 text-white/70 font-light text-lg leading-relaxed">
+        <p>De meeste contentbureaus zijn gebouwd voor de dopamine-loop — maak meer, post meer, hoop dat er iets aanslaat. Dat model put creators uit en verwatert merken.</p>
+        <p>Ons werk is gebouwd voor een rustigere uitkomst: het moment waarop een vreemde op je profiel belandt en denkt "deze persoon is de echte." Dat is meer waard dan tien virale hits.</p>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-3 gap-8">
+        {stats.map((s) => (
+          <div class="border-t border-white/10 pt-6">
+            <div class="font-serif text-5xl text-[#D4AF37]">{s.v}</div>
+            <div class="text-xs tracking-[0.2em] uppercase text-white/50 mt-2">{s.l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* CTA */}
+  <section class="relative py-32 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src={IMG.branding[0]} alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/80"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-6 text-center">
+      <h2 class="font-serif text-5xl md:text-7xl leading-tight">Bouw een merk<br /><span class="italic font-light">dat zich opstapelt.</span></h2>
+      <p class="mt-6 text-white/70 font-light text-lg max-w-xl mx-auto">We nemen 3–4 retainerklanten per kwartaal aan. Meld je aan om de match te bespreken.</p>
+      <a href="/contact" class="mt-10 inline-flex items-center gap-3 px-10 py-5 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+        Start het gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

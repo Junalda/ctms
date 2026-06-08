@@ -1,0 +1,60 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { IMG } from '@/lib/images';
+import { BOOKING_URL } from '@/lib/booking';
+
+const steps = [
+  { n: '01', t: 'Brand-identiteitsgesprek', sub: 'Week 1', d: 'Een diepgaande sessie van 90 minuten over je waarden, je doelgroep en de visuele positie die alleen jij kunt claimen. We vertrekken met helderheid, niet met een briefingsjabloon.', img: IMG.bts[0] },
+  { n: '02', t: 'Contentstrategie', sub: 'Week 2', d: 'Een op maat gemaakte visuele routekaart: pijlers, formats, tone of voice, frequentie en KPI’s. Gebouwd voor omzetimpact, niet alleen bereik.', img: IMG.business[1] },
+  { n: '03', t: 'Productie', sub: 'Week 3 — 4', d: 'Een door de regisseur geleide opnamedag (of -week) met volledige crew, belichting en apparatuur. Cinematische standaarden in foto en video.', img: IMG.bts[2] },
+  { n: '04', t: 'Montage & branding', sub: 'Week 4 — 5', d: 'Verhaal-eerst postproductie: kleurgrading, sound design, motion graphics en een consistente visuele taal over elke deliverable.', img: IMG.realEstate[1] },
+  { n: '05', t: 'Groei & optimalisatie', sub: 'Doorlopend', d: 'We meten de inbound, verfijnen het raamwerk en laten de contentbibliotheek kwartaal na kwartaal groeien.', img: IMG.branding[1] },
+];
+---
+
+<BaseLayout
+  title="Werkwijze — Vijf fases, één uitkomst | Capture the Moment Solutions"
+  description="Onze werkwijze: van brand-identiteitsgesprek tot doorlopende groei. Heldere fases, eerlijke planningen en een systeem dat meegroeit met je merk."
+>
+  <section class="pt-40 pb-20 bg-black">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">De werkwijze</div>
+      <h1 class="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight max-w-5xl">
+        Vijf fases.<br />
+        <span class="italic font-light">Eén uitkomst.</span>
+      </h1>
+      <p class="mt-10 max-w-2xl text-lg text-white/60 font-light">
+        We behandelen elke samenwerking als een studioproductie — heldere fases, eerlijke planningen en een systeem dat meeschaalt naarmate je merk groeit.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-black pb-32">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      {steps.map((s, i) => (
+        <div class={`grid lg:grid-cols-12 gap-10 lg:gap-16 py-20 border-t border-white/10 ${i === steps.length - 1 ? 'border-b' : ''}`}>
+          <div class="lg:col-span-2 font-mono text-xs text-[#D4AF37] tracking-widest">{s.n} / 05</div>
+          <div class={`lg:col-span-5 ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+            <div class="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-4">{s.sub}</div>
+            <h2 class="font-serif text-4xl md:text-5xl mb-6 tracking-tight">{s.t}</h2>
+            <p class="text-white/60 font-light text-lg leading-relaxed">{s.d}</p>
+          </div>
+          <div class={`lg:col-span-5 aspect-[4/3] overflow-hidden ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+            <img src={s.img} alt={s.t} class="w-full h-full object-cover" />
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-zinc-950 py-32 text-center border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-serif text-5xl md:text-6xl">Klaar om te beginnen?</h2>
+      <p class="mt-6 text-white/60 font-light text-lg">Het eerste gesprek is altijd gratis. Binnen 30 minuten weten we of we de juiste match zijn.</p>
+      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="mt-10 inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+        Plan een gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

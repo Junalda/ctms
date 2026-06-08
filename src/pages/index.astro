@@ -1,0 +1,367 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { IMG } from '@/lib/images';
+import { BOOKING_URL, WHATSAPP_URL } from '@/lib/booking';
+
+const services = [
+  { icon: 'lucide:camera', title: 'Vastgoed', sub: 'Fotografie & video', body: 'Verkoop panden sneller met cinematische beelden die een listing in verlangen veranderen.', link: '/real-estate', img: IMG.realEstate[0] },
+  { icon: 'lucide:sparkles', title: 'Personal brand', sub: 'Content & strategie', body: 'Positioneer jezelf als dé autoriteit in je vakgebied met consistente, premium content.', link: '/content-creation', img: IMG.branding[0] },
+  { icon: 'lucide:video', title: 'Merkverhaal', sub: 'Strategische films', body: 'Langere storytelling die door de tijd heen vertrouwen opbouwt bij de juiste klant.', link: '/services', img: IMG.business[0] },
+];
+
+const processSteps = [
+  { n: '01', t: 'Identiteit', d: 'We beginnen bij wie je bent — waarden, doelgroep, onderscheid.' },
+  { n: '02', t: 'Strategie', d: 'Een contentraamwerk gebouwd voor waarde op de lange termijn.' },
+  { n: '03', t: 'Productie', d: 'Cinematische opnames in foto, video en motion.' },
+  { n: '04', t: 'Montage', d: 'Verhaal-eerst postproductie met consistente merkstijl.' },
+  { n: '05', t: 'Groei', d: 'Meten, bijsturen en content als groeiend kapitaal.' },
+];
+
+const testimonials = [
+  { q: 'Gabriel maakt niet alleen beelden — hij denkt mee. De campagne die hij bouwde verkocht ons penthouse van €1,8 mln in elf dagen, met drie concurrerende biedingen.', n: 'Marleen van Dam', r: 'Managing broker, Van Dam Real Estate', img: IMG.branding[2] },
+  { q: 'In zes maanden ging mijn LinkedIn van onzichtbaar naar inbound. De contentstrategie voelde minder als marketing en meer als mezelf worden, voor de camera.', n: 'Tomás Reijnders', r: 'Oprichter, Kapitaal Studio', img: IMG.branding[3] },
+  { q: 'Hij heeft de zeldzame combinatie van het oog van een cineast en het brein van een strateeg. We hebben eindelijk een merk dat eruitziet zoals het zou moeten voelen.', n: 'Saskia Meyer', r: 'CEO, Meyer & Co.', img: IMG.branding[0] },
+];
+---
+
+<BaseLayout
+  title="Capture the Moment Solutions — Strategische visuele storytelling | Rotterdam"
+  description="Premium vastgoedfotografie, personal branding content en merkverhalen op film. Cinematische content gebouwd op vertrouwen en groei op lange termijn. Rotterdam, NL."
+>
+  {/* ============= HERO ============= */}
+  <section class="relative h-screen min-h-[720px] w-full overflow-hidden bg-black">
+    <div class="absolute inset-0">
+      <img src={IMG.heroVilla} alt="Cinematische luxe villa" class="w-full h-full object-cover animate-kenburns" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 h-full flex flex-col justify-end pb-24 lg:pb-32">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-8 animate-fade-in">
+            <div class="w-12 h-px bg-[#D4AF37]"></div>
+            <span class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] font-light">Capture the Moment · Rotterdam</span>
+          </div>
+          <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[96px] leading-[0.95] tracking-tight text-white animate-fade-up">
+            Verhalen die<br />
+            <span class="italic font-light">vertrouwen bouwen.</span>
+          </h1>
+          <p class="mt-8 text-lg md:text-xl text-white/70 font-light max-w-xl leading-relaxed animate-fade-up delay-200">
+            Strategische visuele storytelling voor vastgoed, personal brands en bedrijven die onthouden willen worden — niet alleen gezien.
+          </p>
+          <div class="mt-12 flex flex-wrap items-center gap-5 animate-fade-up delay-300">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-[#D4AF37] transition-all">
+              Plan een gesprek
+              <Icon name="lucide:arrow-up-right" width={16} height={16} class="group-hover:rotate-45 transition-transform" />
+            </a>
+            <a href="/portfolio" class="group inline-flex items-center gap-3 text-white text-[12px] tracking-[0.2em] uppercase font-light hover:text-[#D4AF37]">
+              <span class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:border-[#D4AF37]">
+                <Icon name="lucide:play" width={12} height={12} class="ml-0.5" fill="currentColor" />
+              </span>
+              Bekijk de reel
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/40">
+      <span class="text-[10px] tracking-[0.4em] uppercase">Scroll</span>
+      <div class="w-px h-12 bg-gradient-to-b from-white/40 to-transparent"></div>
+    </div>
+  </section>
+
+  {/* ============= TRUST BAR ============= */}
+  <section class="bg-black border-t border-white/5 py-12">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-10">
+        <p class="text-[11px] tracking-[0.4em] uppercase text-white/40">Vertrouwd door professionals door heel Nederland</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center opacity-60">
+        {['VAN DAM', 'MEYER & CO', 'HUIZE NOORD', 'ATELIER 14', 'KAPITAAL', 'NORDIC HAUS'].map((b) => (
+          <div class="text-center text-white/60 font-serif text-xl tracking-[0.2em]">{b}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ============= SERVICES OVERVIEW ============= */}
+  <section class="bg-black py-32 lg:py-40">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-12 gap-12 mb-20">
+        <div class="lg:col-span-5">
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">01 — Wat we doen</div>
+          <h2 class="font-serif text-5xl md:text-6xl leading-[1.02] tracking-tight">
+            Drie ambachten.<br />Eén filosofie.
+          </h2>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7 flex items-end">
+          <p class="text-lg text-white/60 font-light leading-relaxed">
+            Wij jagen geen trends na. We bouwen visuele identiteiten die zich opstapelen — content gemaakt voor merkwaarde op lange termijn, niet voor het algoritme van de week.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-px bg-white/5">
+        {services.map((s) => (
+          <a href={s.link} class="group relative bg-black p-10 lg:p-14 overflow-hidden hover:bg-zinc-950 transition-colors min-h-[480px] flex flex-col">
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-700">
+              <img src={s.img} alt="" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+            </div>
+            <div class="relative">
+              <Icon name={s.icon} width={20} height={20} class="text-[#D4AF37] mb-12" stroke-width="1.25" />
+              <div class="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-3">{s.sub}</div>
+              <h3 class="font-serif text-4xl md:text-5xl tracking-tight mb-6">{s.title}</h3>
+              <p class="text-white/60 font-light leading-relaxed mb-12">{s.body}</p>
+            </div>
+            <div class="relative mt-auto flex items-center gap-3 text-[11px] tracking-[0.3em] uppercase text-white/60 group-hover:text-[#D4AF37] transition-colors">
+              Ontdek <Icon name="lucide:arrow-right" width={14} height={14} class="group-hover:translate-x-1 transition-transform" />
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ============= PHILOSOPHY ============= */}
+  <section class="bg-white text-black py-32 lg:py-40">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-12 gap-16 items-center">
+        <div class="lg:col-span-6 order-2 lg:order-1">
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#9C7C2A] mb-8">02 — Onze filosofie</div>
+          <h2 class="font-serif text-5xl md:text-6xl leading-[1.02] tracking-tight mb-10">
+            Vertrouwen boven viraliteit.<br />
+            <span class="italic">Verhaal boven trend.</span>
+          </h2>
+          <div class="space-y-6 text-lg text-zinc-700 font-light leading-relaxed max-w-xl">
+            <p>Het internet beloont lawaai. Wij maken geen lawaai. We maken het soort visueel werk dat een tweede blik verdient — en een lang geheugen.</p>
+            <p>Elk beeld is met intentie gemaakt: voor wie het bedoeld is, wat het ze laat voelen en wat het ze vraagt om vervolgens te doen. Dat is het verschil tussen content en een verhaal.</p>
+          </div>
+          <div class="mt-12 grid grid-cols-2 gap-8 max-w-md">
+            <div>
+              <div class="font-serif text-5xl text-[#9C7C2A]">12+</div>
+              <div class="text-xs tracking-[0.2em] uppercase text-zinc-500 mt-2">Jaar achter de lens</div>
+            </div>
+            <div>
+              <div class="font-serif text-5xl text-[#9C7C2A]">200+</div>
+              <div class="text-xs tracking-[0.2em] uppercase text-zinc-500 mt-2">Verhalen verteld</div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-6 order-1 lg:order-2">
+          <div class="relative aspect-[4/5] overflow-hidden">
+            <img src={IMG.bts[0]} alt="Gabriel aan het filmen" class="w-full h-full object-cover" />
+            <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur p-6 border-l-2 border-[#D4AF37]">
+              <div class="text-[10px] tracking-[0.4em] uppercase text-zinc-500 mb-2">Een woord van de oprichter</div>
+              <p class="font-serif text-xl italic text-zinc-800 leading-snug">"Ik wil geen content maken die verdwijnt. Ik wil werk bouwen dat het fundament van een merk wordt."</p>
+              <div class="mt-3 text-xs tracking-wide text-zinc-600">— Gabriel, oprichter</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ============= FEATURED PORTFOLIO ============= */}
+  <section class="bg-black py-32 lg:py-40">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div>
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">03 — Geselecteerd werk</div>
+          <h2 class="font-serif text-5xl md:text-6xl leading-[1.02] tracking-tight">Een portfolio van vertrouwen.</h2>
+        </div>
+        <a href="/portfolio" class="inline-flex items-center gap-3 text-[12px] tracking-[0.2em] uppercase text-white/70 hover:text-[#D4AF37] group">
+          Bekijk al het werk <Icon name="lucide:arrow-up-right" width={16} height={16} class="group-hover:rotate-45 transition-transform" />
+        </a>
+      </div>
+
+      <div class="grid grid-cols-12 gap-4 md:gap-6">
+        <a href="/portfolio" class="col-span-12 md:col-span-8 group relative overflow-hidden aspect-[16/10]">
+          <img src={IMG.realEstate[1]} alt="Penthouse Wijnhaven" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8 md:p-10">
+            <div class="text-[10px] tracking-[0.4em] uppercase text-[#D4AF37] mb-3">Vastgoed · Rotterdam</div>
+            <h3 class="font-serif text-3xl md:text-4xl">Penthouse Wijnhaven</h3>
+          </div>
+        </a>
+        <a href="/portfolio" class="col-span-6 md:col-span-4 group relative overflow-hidden aspect-[4/5]">
+          <img src={IMG.branding[1]} alt="Merkportret" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <div class="text-[10px] tracking-[0.4em] uppercase text-[#D4AF37] mb-2">Personal brand</div>
+            <h3 class="font-serif text-2xl">The Founder Series</h3>
+          </div>
+        </a>
+        <a href="/portfolio" class="col-span-6 md:col-span-4 group relative overflow-hidden aspect-square">
+          <img src={IMG.realEstate[2]} alt="Grachtenappartement" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <div class="text-[10px] tracking-[0.4em] uppercase text-[#D4AF37] mb-2">Vastgoed</div>
+            <h3 class="font-serif text-2xl">Atelier 14</h3>
+          </div>
+        </a>
+        <a href="/portfolio" class="col-span-12 md:col-span-4 group relative overflow-hidden aspect-square">
+          <img src={IMG.business[1]} alt="Merkverhaal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <div class="text-[10px] tracking-[0.4em] uppercase text-[#D4AF37] mb-2">Merkverhaal</div>
+            <h3 class="font-serif text-2xl">Kapitaal Studio</h3>
+          </div>
+        </a>
+        <a href="/portfolio" class="col-span-12 md:col-span-4 group relative overflow-hidden aspect-square">
+          <img src={IMG.canal[0]} alt="Grachtenpand" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <div class="text-[10px] tracking-[0.4em] uppercase text-[#D4AF37] mb-2">Vastgoed</div>
+            <h3 class="font-serif text-2xl">Herengracht 88</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* ============= PROCESS ============= */}
+  <section class="bg-zinc-950 py-32 lg:py-40 border-t border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">04 — De werkwijze</div>
+        <h2 class="font-serif text-5xl md:text-6xl leading-[1.02] tracking-tight">Een studio-aanpak.</h2>
+        <p class="mt-6 text-white/60 font-light text-lg">Vijf fases. Eén uitkomst: een body of work die in waarde toeneemt door de tijd heen.</p>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-px bg-white/5">
+        {processSteps.map((s) => (
+          <div class="bg-zinc-950 p-8 lg:p-10 hover:bg-black transition-colors min-h-[260px] flex flex-col">
+            <div class="font-mono text-xs text-[#D4AF37] mb-8">{s.n}</div>
+            <h3 class="font-serif text-2xl mb-4">{s.t}</h3>
+            <p class="text-white/50 text-sm font-light leading-relaxed">{s.d}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-16">
+        <a href="/process" class="inline-flex items-center gap-3 text-[12px] tracking-[0.2em] uppercase text-white/80 hover:text-[#D4AF37] group">
+          Bekijk de volledige werkwijze <Icon name="lucide:arrow-right" width={14} height={14} class="group-hover:translate-x-1 transition-transform" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* ============= TESTIMONIALS ============= */}
+  <section class="bg-black py-32 lg:py-40">
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-16">
+        <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">05 — Stemmen</div>
+        <h2 class="font-serif text-5xl md:text-6xl leading-[1.02] tracking-tight">Wat klanten zeggen.</h2>
+      </div>
+
+      <div class="relative">
+        {testimonials.map((t, i) => (
+          <div
+            data-testimonial={i}
+            class={`${i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none absolute inset-0'} transition-opacity duration-700`}
+          >
+            <Icon name="lucide:quote" width={32} height={32} class="text-[#D4AF37] mx-auto mb-8" stroke-width="1.25" />
+            <p class="font-serif text-3xl md:text-4xl lg:text-5xl text-center leading-[1.2] italic text-white/95 max-w-4xl mx-auto">
+              "{t.q}"
+            </p>
+            <div class="flex items-center justify-center gap-4 mt-12">
+              <img src={t.img} alt={t.n} class="w-14 h-14 rounded-full object-cover grayscale" />
+              <div class="text-left">
+                <div class="text-white text-sm">{t.n}</div>
+                <div class="text-white/50 text-xs tracking-wide">{t.r}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+        <div class="flex items-center justify-center gap-3 mt-12 relative">
+          {testimonials.map((_, i) => (
+            <button
+              data-dot={i}
+              aria-label={`Klantervaring ${i + 1}`}
+              class={`h-px transition-all ${i === 0 ? 'w-12 bg-[#D4AF37]' : 'w-6 bg-white/20 hover:bg-white/40'}`}
+            ></button>
+          ))}
+        </div>
+        <div class="flex items-center justify-center gap-1 mt-6">
+          {[...Array(5)].map(() => <Icon name="lucide:star" width={14} height={14} class="fill-[#D4AF37] text-[#D4AF37]" />)}
+          <span class="ml-2 text-xs text-white/50 tracking-wide">5,0 · 47 reviews op Google</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ============= FINAL CTA ============= */}
+  <section class="relative py-32 lg:py-44 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src={IMG.heroRotterdam} alt="Rotterdam" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/75"></div>
+    </div>
+    <div class="relative max-w-[1100px] mx-auto px-6 lg:px-10 text-center">
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">06 — Begin</div>
+      <h2 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.98] tracking-tight">
+        Jouw merk verdient<br />
+        <span class="italic font-light">een verhaal.</span>
+      </h2>
+      <p class="mt-8 text-lg md:text-xl text-white/70 font-light max-w-2xl mx-auto">
+        Plan een strategiegesprek van 30 minuten. We bespreken je doelgroep, je onderscheid en het soort visuele aanwezigheid waarin het de moeite waard is te investeren.
+      </p>
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-4">
+        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 px-10 py-5 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+          Plan een gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} class="group-hover:rotate-45 transition-transform" />
+        </a>
+        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="inline-flex items-center gap-3 px-10 py-5 border border-white/30 text-white text-[12px] tracking-[0.2em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37] transition-colors">
+          WhatsApp Gabriel
+        </a>
+      </div>
+      <div class="mt-12 flex items-center justify-center gap-2 text-white/40 text-xs tracking-wide">
+        <Icon name="lucide:trending-up" width={14} height={14} /> Momenteel projecten boeken voor Q3 2026
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Auto-roterende testimonials (was een React useState/useEffect-carrousel).
+  const slides = Array.from(document.querySelectorAll('[data-testimonial]'));
+  const dots = Array.from(document.querySelectorAll('[data-dot]'));
+  let active = 0;
+  let timer;
+
+  function show(index) {
+    active = index;
+    slides.forEach((el, i) => {
+      const on = i === index;
+      el.classList.toggle('opacity-100', on);
+      el.classList.toggle('opacity-0', !on);
+      el.classList.toggle('pointer-events-none', !on);
+      el.classList.toggle('absolute', !on);
+      el.classList.toggle('inset-0', !on);
+    });
+    dots.forEach((d, i) => {
+      const on = i === index;
+      d.classList.toggle('w-12', on);
+      d.classList.toggle('bg-[#D4AF37]', on);
+      d.classList.toggle('w-6', !on);
+      d.classList.toggle('bg-white/20', !on);
+      d.classList.toggle('hover:bg-white/40', !on);
+    });
+  }
+
+  function start() {
+    timer = window.setInterval(() => show((active + 1) % slides.length), 6000);
+  }
+
+  dots.forEach((dot, i) =>
+    dot.addEventListener('click', () => {
+      window.clearInterval(timer);
+      show(i);
+      start();
+    })
+  );
+
+  if (slides.length) start();
+</script>

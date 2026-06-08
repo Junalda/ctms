@@ -1,0 +1,64 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { IMG } from '@/lib/images';
+import { BOOKING_URL } from '@/lib/booking';
+
+const services = [
+  { n: '01', t: 'Vastgoedfotografie', sub: 'Beelden die verkopen', d: 'Interieur-, exterieur-, schemer- en luchtfotografie van magazinekwaliteit die een listing in verlangen verandert.', img: IMG.realEstate[0], to: '/real-estate' },
+  { n: '02', t: 'Vastgoedvideografie', sub: 'Cinematische pandfilms', d: 'Walk-throughfilms, drone-onthullingen en 4K-listingtrailers — het dichtst dat je bij een bezichtiging komt zonder er te zijn.', img: IMG.realEstate[1], to: '/real-estate' },
+  { n: '03', t: 'Personal branding content', sub: 'Autoriteit voor de camera', d: 'Portretten van oprichters, short-form video en terugkerende shoots die maand na maand een coherente aanwezigheid opbouwen.', img: IMG.branding[0], to: '/content-creation' },
+  { n: '04', t: 'Social media storytelling', sub: 'Strategische short-form', d: 'Reels, shorts en verticals gemaakt voor retentie, herkenning en inbound — geen ijdelheidscijfers.', img: IMG.branding[1], to: '/content-creation' },
+  { n: '05', t: 'Contentstrategie', sub: 'De architectuur', d: 'Een visuele routekaart van 12 maanden: pijlers, formats, tone of voice en KPI’s afgestemd op omzet, niet op bereik.', img: IMG.bts[1], to: '/content-creation' },
+  { n: '06', t: 'Merkverhalen', sub: 'Langere films', d: 'Documentaire-achtige merkfilms en oprichtersverhalen die jaren aan vertrouwen comprimeren tot minuten beeld.', img: IMG.business[0], to: '/services' },
+];
+---
+
+<BaseLayout
+  title="Diensten — Zes disciplines, één studio | Capture the Moment Solutions"
+  description="Van vastgoedfotografie en -video tot personal branding, contentstrategie en merkverhalen. Strategie eerst, verhaal altijd, vakmanschap zonder concessies."
+>
+  <section class="pt-40 pb-20 bg-black">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Diensten</div>
+      <h1 class="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight max-w-5xl">
+        Zes disciplines.<br />
+        <span class="italic font-light">Eén studio.</span>
+      </h1>
+      <p class="mt-10 max-w-2xl text-lg text-white/60 font-light">
+        Elke samenwerking is op maat — maar de fundamenten zijn hetzelfde: strategie eerst, altijd het verhaal, vakmanschap zonder concessies.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-black pb-32">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      {services.map((s, i) => (
+        <a href={s.to} class={`group grid lg:grid-cols-12 gap-10 lg:gap-16 py-16 lg:py-24 border-t border-white/10 ${i === services.length - 1 ? 'border-b' : ''}`}>
+          <div class="lg:col-span-2 font-mono text-xs text-[#D4AF37] tracking-widest">{s.n}</div>
+          <div class="lg:col-span-5">
+            <div class="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-4">{s.sub}</div>
+            <h2 class="font-serif text-4xl md:text-5xl tracking-tight mb-6 group-hover:text-[#D4AF37] transition-colors">{s.t}</h2>
+            <p class="text-white/60 font-light text-lg leading-relaxed max-w-lg">{s.d}</p>
+            <div class="mt-8 inline-flex items-center gap-3 text-[11px] tracking-[0.3em] uppercase text-white/70 group-hover:text-[#D4AF37]">
+              Informeer <Icon name="lucide:arrow-right" width={14} height={14} class="group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+          <div class="lg:col-span-5 aspect-[4/3] overflow-hidden">
+            <img src={s.img} alt={s.t} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-zinc-950 py-32 text-center border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-serif text-5xl md:text-6xl">Niet zeker welke aanpak past?</h2>
+      <p class="mt-6 text-white/60 font-light text-lg">De meeste klanten beginnen met een strategiegesprek van 30 minuten. We koppelen de juiste dienst aan de uitkomst die je echt nodig hebt.</p>
+      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="mt-10 inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+        Plan een gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

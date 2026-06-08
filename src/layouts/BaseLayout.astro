@@ -1,0 +1,78 @@
+---
+import '@/styles/global.css';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+interface Props {
+  /** Pagina-titel (verschijnt in de <title> en social previews). */
+  title: string;
+  /** Meta-description voor zoekmachines en social previews. */
+  description: string;
+  /** Optionele social-share-afbeelding (absolute URL). */
+  image?: string;
+}
+
+const {
+  title,
+  description,
+  image = 'https://d64gsuwffb70l.cloudfront.net/6a0ecd3f814a46bf88ce2eba_1779356204307_c15fb8f4.jpg',
+} = Astro.props;
+
+// Canonical-URL op basis van de huidige route + het in astro.config.mjs
+// ingestelde `site`-domein.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="nl" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="vastgoedfotografie Rotterdam, personal branding content, merkverhalen, videograaf Nederland, cinematische vastgoedvideo, contentstrategie Rotterdam"
+    />
+    <meta name="author" content="Gabriel — Capture the Moment Solutions" />
+    <link rel="icon" type="image/svg+xml" href="/placeholder.svg" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="nl-nl" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: 'Capture the Moment Solutions',
+      description:
+        'Strategische visuele storytelling, vastgoedfotografie & -videografie en personal branding content in Rotterdam, NL.',
+      image: 'https://d64gsuwffb70l.cloudfront.net/6a0ecd3f814a46bf88ce2eba_1779356204307_c15fb8f4.jpg',
+      founder: { '@type': 'Person', name: 'Gabriel' },
+      address: { '@type': 'PostalAddress', addressLocality: 'Rotterdam', addressCountry: 'NL' },
+      areaServed: ['Rotterdam', 'Den Haag', 'Amsterdam', 'Utrecht', 'Delft'],
+      priceRange: '€€€',
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '47' },
+    })} />
+  </head>
+  <body class="min-h-screen bg-black text-white font-sans antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

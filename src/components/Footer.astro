@@ -1,0 +1,143 @@
+---
+import { Icon } from 'astro-icon/components';
+import { footerServices, footerStudio, footerLocations } from '@/data/nav';
+import { BOOKING_URL, WHATSAPP_URL, CRM_SUBSCRIBE_URL } from '@/lib/booking';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-black text-white border-t border-white/5">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-10 pt-24 pb-10">
+    <!-- CTA-banner -->
+    <div class="border-b border-white/10 pb-20 mb-20">
+      <div class="grid lg:grid-cols-2 gap-10 items-end">
+        <div>
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">Start het gesprek</div>
+          <h2 class="font-serif text-4xl md:text-6xl leading-[1.05] tracking-tight">
+            Laten we een verhaal bouwen<br />dat blijft hangen.
+          </h2>
+        </div>
+        <div class="flex flex-col items-start lg:items-end gap-4">
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors"
+          >
+            Plan een gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} />
+          </a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="text-white/60 hover:text-white text-sm tracking-wide">
+            of stuur een bericht via WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kolommen -->
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-16">
+      <div class="col-span-2">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center">
+            <span class="text-[11px] tracking-[0.2em] font-light">CM</span>
+          </div>
+          <div>
+            <div class="text-[11px] tracking-[0.3em] uppercase">Capture the Moment</div>
+            <div class="text-[9px] tracking-[0.4em] uppercase text-white/50">Solutions</div>
+          </div>
+        </div>
+        <p class="text-white/60 text-sm leading-relaxed max-w-sm font-light">
+          Strategische visuele storytelling voor professionals en merken die onthouden willen worden.
+          Opgericht in Rotterdam door Gabriel — vertrouwen opbouwen met cinematische content.
+        </p>
+        <form id="newsletter-form" class="mt-8 max-w-sm">
+          <label class="text-[11px] tracking-[0.3em] uppercase text-white/50" for="newsletter-email">De Quarterly Brief</label>
+          <div class="mt-3 flex items-center border-b border-white/20 focus-within:border-[#D4AF37] transition-colors">
+            <input
+              id="newsletter-email"
+              name="email"
+              type="email"
+              placeholder="jouw@email.nl"
+              class="flex-1 bg-transparent py-3 text-sm placeholder:text-white/30 outline-none"
+            />
+            <button id="newsletter-submit" type="submit" class="text-[11px] tracking-[0.2em] uppercase text-white/80 hover:text-[#D4AF37] transition-colors px-2">
+              Aanmelden
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div>
+        <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-5">Diensten</div>
+        <ul class="space-y-3 text-sm text-white/70 font-light">
+          {footerServices.map((l) => (
+            <li><a href={l.to} class="hover:text-white">{l.name}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-5">Studio</div>
+        <ul class="space-y-3 text-sm text-white/70 font-light">
+          {footerStudio.map((l) => (
+            <li><a href={l.to} class="hover:text-white">{l.name}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-5">Locaties</div>
+        <ul class="space-y-3 text-sm text-white/70 font-light">
+          {footerLocations.map((l) => (
+            <li><a href={l.to} class="hover:text-white">{l.name}</a></li>
+          ))}
+          <li class="text-white/40">Den Haag · Amsterdam · Utrecht</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Contactstrip -->
+    <div class="grid md:grid-cols-3 gap-6 py-8 border-t border-b border-white/10 text-sm text-white/70 font-light">
+      <div class="flex items-center gap-3"><Icon name="lucide:map-pin" width={16} height={16} class="text-[#D4AF37]" /> Rotterdam, Nederland</div>
+      <div class="flex items-center gap-3"><Icon name="lucide:mail" width={16} height={16} class="text-[#D4AF37]" /> hello@capturethemoment.nl</div>
+      <div class="flex items-center gap-3"><Icon name="lucide:phone" width={16} height={16} class="text-[#D4AF37]" /> +31 (0)6 00 00 00 00</div>
+    </div>
+
+    <!-- Onderbalk -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mt-10 text-[12px] text-white/40 font-light">
+      <div>© {year} Capture the Moment Solutions. Alle rechten voorbehouden.</div>
+      <div class="flex items-center gap-5">
+        <a href="#" aria-label="Instagram" class="hover:text-white"><Icon name="lucide:instagram" width={16} height={16} /></a>
+        <a href="#" aria-label="LinkedIn" class="hover:text-white"><Icon name="lucide:linkedin" width={16} height={16} /></a>
+        <a href="#" aria-label="YouTube" class="hover:text-white"><Icon name="lucide:youtube" width={16} height={16} /></a>
+      </div>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-white">Privacy</a>
+        <a href="#" class="hover:text-white">Voorwaarden</a>
+        <a href="#" class="hover:text-white">KvK 00000000</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script define:vars={{ CRM_SUBSCRIBE_URL }}>
+  // Nieuwsbriefinschrijving — POST naar het CRM, met statusfeedback op de knop.
+  const form = document.getElementById('newsletter-form');
+  const input = document.getElementById('newsletter-email');
+  const button = document.getElementById('newsletter-submit');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = input?.value?.trim();
+    if (!email || !email.includes('@')) return;
+    button.textContent = '...';
+    try {
+      await fetch(CRM_SUBSCRIBE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'footer-signup', tags: ['newsletter', 'footer'] }),
+      });
+    } catch (err) { /* stil falen — UX gaat door */ }
+    button.textContent = 'Bedankt';
+    input.value = '';
+    setTimeout(() => { button.textContent = 'Aanmelden'; }, 4000);
+  });
+</script>

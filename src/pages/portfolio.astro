@@ -1,0 +1,147 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { IMG } from '@/lib/images';
+
+// Categorieën in het Nederlands; de waarde dient tegelijk als filtersleutel.
+const cats = ['Alles', 'Vastgoed', 'Personal branding', 'Merkverhalen'];
+
+const items = [
+  { id: 1, title: 'Penthouse Wijnhaven', cat: 'Vastgoed', loc: 'Rotterdam', img: IMG.realEstate[1], wide: true, desc: 'Een film- en fotocampagne voor een penthouse van €2,4 mln die de listing in elf dagen verkocht.' },
+  { id: 2, title: 'The Founder Series', cat: 'Personal branding', loc: 'Rotterdam', img: IMG.branding[1], tall: true, desc: 'Per kwartaal cinematische oprichtersportretten voor een fintech-ondernemer.' },
+  { id: 3, title: 'Atelier 14', cat: 'Vastgoed', loc: 'Delft', img: IMG.realEstate[2], desc: 'Monumentaal herenhuis, moderne restauratie. Uitgelicht in de Volkskrant.' },
+  { id: 4, title: 'Kapitaal Studio', cat: 'Merkverhalen', loc: 'Amsterdam', img: IMG.business[1], desc: 'Merkdocumentaire voor een creatief productiebedrijf.' },
+  { id: 5, title: 'Herengracht 88', cat: 'Vastgoed', loc: 'Amsterdam', img: IMG.canal[0], desc: 'Grachtenpand-listing — schemerexterieur en redactioneel interieur.' },
+  { id: 6, title: 'Meyer & Co.', cat: 'Merkverhalen', loc: 'Utrecht', img: IMG.business[0], wide: true, desc: 'Jaarlijkse merkfilm voor een Nederlands financieel adviesbureau.' },
+  { id: 7, title: 'Saskia M.', cat: 'Personal branding', loc: 'Rotterdam', img: IMG.branding[2], desc: 'Portretserie voor een CEO en een short-form contentmotor.' },
+  { id: 8, title: 'Loft Noord', cat: 'Vastgoed', loc: 'Rotterdam', img: IMG.realEstate[3], tall: true, desc: 'Industriële loftconversie — sfeervol interieur, exterieur in het gouden uur.' },
+  { id: 9, title: 'Tomás R.', cat: 'Personal branding', loc: 'Den Haag', img: IMG.branding[3], desc: 'LinkedIn-contentretainer — zes maanden, 40+ assets.' },
+  { id: 10, title: 'Huize Noord', cat: 'Vastgoed', loc: 'Rotterdam', img: IMG.realEstate[0], wide: true, desc: 'Marketing voor een luxe villa — film, beelden, schemer en lucht.' },
+  { id: 11, title: 'Atelier Nordic', cat: 'Merkverhalen', loc: 'Rotterdam', img: IMG.bts[2], desc: 'Behind-the-scenes-documentaire voor een meubelmaker.' },
+  { id: 12, title: 'Van Dam Group', cat: 'Personal branding', loc: 'Rotterdam', img: IMG.branding[0], desc: 'Makelaarsgedreven personal-brandcampagne voor een vastgoedkantoor.' },
+  { id: 13, title: 'Singel 142', cat: 'Vastgoed', loc: 'Amsterdam', img: IMG.canal[1], desc: 'Grachtenappartement in redactionele stijl gefotografeerd.' },
+  { id: 14, title: 'Nordic Haus', cat: 'Merkverhalen', loc: 'Rotterdam', img: IMG.bts[1], tall: true, desc: 'Oprichtersverhaal, productiefilm en productbeelden.' },
+];
+---
+
+<BaseLayout
+  title="Portfolio — Een portfolio van vertrouwen | Capture the Moment Solutions"
+  description="Geselecteerd werk in vastgoed, personal branding en merkverhalen. Cinematische beelden gebouwd op vertrouwen, gemaakt in Rotterdam en daarbuiten."
+>
+  <section class="pt-40 pb-12 bg-black">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Geselecteerd werk · 2023 — 2026</div>
+      <h1 class="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight">Een portfolio<br /><span class="italic font-light">van vertrouwen.</span></h1>
+
+      <div class="mt-16 flex flex-wrap items-center gap-2 border-t border-white/10 pt-8">
+        {cats.map((c, i) => (
+          <button
+            data-cat-filter={c}
+            class={`px-5 py-2 text-[11px] tracking-[0.2em] uppercase transition-colors ${i === 0 ? 'bg-[#D4AF37] text-black' : 'text-white/60 hover:text-white border border-white/10'}`}
+          >
+            {c}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-black pb-32">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-12 gap-4 md:gap-6">
+        {items.map((p) => {
+          const col = p.wide ? 'col-span-12 md:col-span-8' : 'col-span-6 md:col-span-4';
+          const aspect = p.wide ? 'aspect-[16/10]' : p.tall ? 'aspect-[3/4]' : 'aspect-square';
+          return (
+            <button
+              data-item
+              data-cat={p.cat}
+              data-title={p.title}
+              data-loc={p.loc}
+              data-img={p.img}
+              data-desc={p.desc}
+              class={`${col} group relative overflow-hidden ${aspect} text-left`}
+            >
+              <img src={p.img} alt={p.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute bottom-0 left-0 p-6 md:p-8">
+                <div class="text-[10px] tracking-[0.4em] uppercase text-[#D4AF37] mb-2">{p.cat} · {p.loc}</div>
+                <h3 class="font-serif text-2xl md:text-3xl">{p.title}</h3>
+              </div>
+              <div class="absolute top-6 right-6 w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                <Icon name="lucide:arrow-up-right" width={14} height={14} />
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  {/* Lightbox */}
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl overflow-auto animate-fade-in hidden">
+    <button id="lightbox-close" class="fixed top-6 right-6 z-10 w-12 h-12 rounded-full border border-white/30 flex items-center justify-center text-white hover:border-[#D4AF37] hover:text-[#D4AF37]">
+      <Icon name="lucide:x" width={18} height={18} />
+    </button>
+    <div class="max-w-[1200px] mx-auto px-6 py-20">
+      <div id="lb-meta" class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-4"></div>
+      <h2 id="lb-title" class="font-serif text-5xl md:text-7xl mb-8"></h2>
+      <p id="lb-desc" class="text-white/70 font-light text-lg max-w-2xl mb-12"></p>
+      <img id="lb-img" src="" alt="" class="w-full h-auto" />
+      <div class="mt-12 flex justify-center">
+        <a href="/contact" class="inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+          Start een vergelijkbaar project <Icon name="lucide:arrow-up-right" width={16} height={16} />
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Categoriefilter (was React useMemo) — toont/verbergt items.
+  const filters = Array.from(document.querySelectorAll('[data-cat-filter]'));
+  const tiles = Array.from(document.querySelectorAll('[data-item]'));
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const cat = btn.getAttribute('data-cat-filter');
+      filters.forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle('bg-[#D4AF37]', on);
+        b.classList.toggle('text-black', on);
+        b.classList.toggle('text-white/60', !on);
+        b.classList.toggle('hover:text-white', !on);
+        b.classList.toggle('border', !on);
+        b.classList.toggle('border-white/10', !on);
+      });
+      tiles.forEach((t) => {
+        const show = cat === 'Alles' || t.getAttribute('data-cat') === cat;
+        t.classList.toggle('hidden', !show);
+      });
+    });
+  });
+
+  // Lightbox (was React modal-state).
+  const lightbox = document.getElementById('lightbox');
+  const lbMeta = document.getElementById('lb-meta');
+  const lbTitle = document.getElementById('lb-title');
+  const lbDesc = document.getElementById('lb-desc');
+  const lbImg = document.getElementById('lb-img');
+  const closeBtn = document.getElementById('lightbox-close');
+
+  function openLightbox(tile) {
+    lbMeta.textContent = `${tile.getAttribute('data-cat')} · ${tile.getAttribute('data-loc')}`;
+    lbTitle.textContent = tile.getAttribute('data-title') || '';
+    lbDesc.textContent = tile.getAttribute('data-desc') || '';
+    lbImg.setAttribute('src', tile.getAttribute('data-img') || '');
+    lbImg.setAttribute('alt', tile.getAttribute('data-title') || '');
+    lightbox?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+  tiles.forEach((t) => t.addEventListener('click', () => openLightbox(t)));
+  closeBtn?.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+</script>

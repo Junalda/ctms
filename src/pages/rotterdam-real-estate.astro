@@ -1,0 +1,216 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { IMG } from '@/lib/images';
+import { BOOKING_URL, WHATSAPP_URL, CRM_SUBSCRIBE_URL } from '@/lib/booking';
+
+const proof = [
+  { v: '120+', l: 'Rotterdamse listings geschoten' },
+  { v: '40%', l: 'Gem. sneller verkocht' },
+  { v: '48u', l: 'Levertijd' },
+  { v: '5,0', l: 'Google-beoordeling' },
+];
+
+const reasons = [
+  { t: 'We kennen de Rotterdamse koper', d: 'Van penthouses op de Wilhelminapier tot villa’s aan de Kralingse Plas — we weten waar lokale kopers visueel op reageren.' },
+  { t: 'Ter plekke binnen 48 uur', d: 'Tijdgevoelige listing? Meestal kunnen we binnen twee werkdagen fotograferen, door de hele Randstad.' },
+  { t: 'Funda-geoptimaliseerde levering', d: 'Beeldformaten, verhoudingen en oriëntaties gemaakt voor maximale prestatie op Funda, Pararius en je eigen site.' },
+  { t: 'Retainers voor kantoren', d: 'Volumegebaseerde tarieven voor kantoren die 5+ listings per maand sluiten. Voorspelbare kosten, premium output.' },
+];
+
+const areas = ['Rotterdam Centrum', 'Kralingen', 'Hillegersberg', 'Wilhelminapier', 'Rotterdam-Zuid', 'Schiebroek', 'Blijdorp', 'Delfshaven', 'Capelle a/d IJssel', 'Schiedam', 'Vlaardingen', 'Den Haag', 'Delft', 'Dordrecht', 'Gouda', 'Utrecht'];
+
+const ctaPoints = [
+  { i: 'lucide:clock', l: '30 min' },
+  { i: 'lucide:video', l: 'Google Meet' },
+  { i: 'lucide:globe', l: 'Jouw tijdzone' },
+  { i: 'lucide:calendar', l: 'Direct bevestigd' },
+];
+---
+
+<BaseLayout
+  title="Vastgoedfotografie Rotterdam — Verkoop 40% sneller | Capture the Moment Solutions"
+  description="Cinematische foto & video voor makelaars, projectontwikkelaars en beleggers in Rotterdam-Zuid, Kralingen, Hillegersberg en de Randstad. Levering binnen 48 uur."
+>
+  <section class="relative pt-40 pb-24 bg-black overflow-hidden">
+    <div class="absolute inset-0">
+      <img src={IMG.realEstate[1]} alt="Rotterdams vastgoed" class="w-full h-full object-cover animate-kenburns" />
+      <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30"></div>
+    </div>
+    <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7">
+        <div class="flex items-center gap-2 mb-8">
+          <Icon name="lucide:map-pin" width={14} height={14} class="text-[#D4AF37]" />
+          <span class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37]">Vastgoedfotografie · Rotterdam</span>
+        </div>
+        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight">
+          Verkoop Rotterdamse<br />
+          listings <span class="italic font-light">40% sneller.</span>
+        </h1>
+        <p class="mt-8 text-lg md:text-xl text-white/70 font-light max-w-xl">
+          Cinematische fotografie & video voor makelaars, projectontwikkelaars en beleggers in Rotterdam-Zuid, Kralingen, Hillegersberg en de hele Randstad.
+        </p>
+        <div class="mt-8 flex items-center gap-3">
+          <div class="flex">{[...Array(5)].map(() => <Icon name="lucide:star" width={14} height={14} class="fill-[#D4AF37] text-[#D4AF37]" />)}</div>
+          <span class="text-sm text-white/60">5,0 — op basis van 47 Google-reviews</span>
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+            Plan een gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} class="group-hover:rotate-45 transition-transform" />
+          </a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white text-[12px] tracking-[0.2em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37]">
+            WhatsApp Gabriel
+          </a>
+        </div>
+      </div>
+
+      {/* Inline leadformulier */}
+      <div class="lg:col-span-5">
+        <div class="bg-zinc-950/80 backdrop-blur border border-white/10 p-8 lg:p-10">
+          <div id="re-done" class="text-center py-4 hidden">
+            <div class="w-14 h-14 rounded-full border border-[#D4AF37] mx-auto flex items-center justify-center mb-6"><Icon name="lucide:check" class="text-[#D4AF37]" /></div>
+            <h3 class="font-serif text-3xl mb-3">Nog één stap.</h3>
+            <p class="text-white/60 font-light mb-6">Kies hieronder een tijd die jou uitkomt — de bevestiging valt direct in je inbox.</p>
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+              Kies een slot van 30 min <Icon name="lucide:arrow-up-right" width={16} height={16} />
+            </a>
+          </div>
+          <div id="re-form-wrap">
+            <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-3">Gratis adviesgesprek</div>
+            <h3 class="font-serif text-3xl mb-2">Krijg je listingstrategie.</h3>
+            <p class="text-white/60 text-sm font-light mb-8">30 minuten. Geen verplichting. Concrete tactieken die je deze week kunt toepassen.</p>
+            <form id="re-form" class="space-y-5">
+              <input required name="name" placeholder="Je naam" class="w-full bg-transparent border-b border-white/20 focus:border-[#D4AF37] py-3 text-sm outline-none" />
+              <input required type="email" name="email" placeholder="E-mail" class="w-full bg-transparent border-b border-white/20 focus:border-[#D4AF37] py-3 text-sm outline-none" />
+              <input name="phone" placeholder="Telefoon (optioneel)" class="w-full bg-transparent border-b border-white/20 focus:border-[#D4AF37] py-3 text-sm outline-none" />
+              <button type="submit" class="w-full mt-4 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">Verder naar de agenda</button>
+            </form>
+            <div class="mt-6 pt-6 border-t border-white/10 text-center">
+              <span class="text-[10px] tracking-[0.3em] uppercase text-white/40">Sla het formulier over — </span>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="text-[10px] tracking-[0.3em] uppercase text-[#D4AF37] hover:text-white">boek direct →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Lokaal vertrouwen */}
+  <section class="bg-white text-black py-24">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid md:grid-cols-4 gap-10">
+        {proof.map((s) => (
+          <div>
+            <div class="font-serif text-6xl text-[#9C7C2A]">{s.v}</div>
+            <div class="text-xs tracking-[0.2em] uppercase text-zinc-500 mt-3">{s.l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Waarom wij */}
+  <section class="bg-black py-32">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="max-w-2xl mb-16">
+        <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">Voor Rotterdamse makelaars</div>
+        <h2 class="font-serif text-5xl md:text-6xl leading-tight">Gebouwd voor de lokale markt.</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-px bg-white/5">
+        {reasons.map((b) => (
+          <div class="bg-black p-10">
+            <h3 class="font-serif text-3xl mb-4">{b.t}</h3>
+            <p class="text-white/60 font-light leading-relaxed">{b.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Werkgebied */}
+  <section class="bg-zinc-950 py-24 border-y border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">Werkgebied</div>
+      <h2 class="font-serif text-4xl md:text-5xl mb-12">Rotterdam & daarbuiten.</h2>
+      <div class="flex flex-wrap gap-3">
+        {areas.map((c) => (
+          <span class="px-4 py-2 border border-white/10 text-sm text-white/70 font-light hover:border-[#D4AF37] hover:text-[#D4AF37] cursor-default transition-colors">{c}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ============= FINALE BOEKINGS-CTA ============= */}
+  <section class="relative py-32 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src={IMG.heroRotterdam} alt="Rotterdam" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/85"></div>
+    </div>
+    <div class="relative max-w-[1100px] mx-auto px-6">
+      <div class="border border-[#D4AF37]/30 bg-black/40 backdrop-blur-sm p-10 md:p-16">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-[#D4AF37]/30 mb-6">
+              <span class="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
+              <span class="text-[10px] tracking-[0.3em] uppercase text-[#D4AF37]">Live agenda · Q3 2026-slots open</span>
+            </div>
+            <h2 class="font-serif text-4xl md:text-6xl leading-[1.05]">
+              Een listing live<br />
+              <span class="italic font-light">deze week?</span>
+            </h2>
+            <p class="mt-6 text-white/70 font-light text-lg max-w-md">
+              We houden wekelijks een beperkt aantal opnameslots vrij in Rotterdam en de Randstad. Leg de jouwe hieronder vast — bevestiging is direct.
+            </p>
+            <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {ctaPoints.map((x) => (
+                <div class="flex items-center gap-2">
+                  <Icon name={x.i} width={14} height={14} stroke-width="1.25" class="text-[#D4AF37]" />
+                  <span class="text-[10px] tracking-[0.15em] uppercase text-white/60">{x.l}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="lg:col-span-5 flex flex-col gap-4">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group w-full inline-flex items-center justify-between gap-3 px-8 py-5 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+              Plan een gesprek <Icon name="lucide:arrow-up-right" width={18} height={18} class="group-hover:rotate-45 transition-transform" />
+            </a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="w-full inline-flex items-center justify-center gap-3 px-8 py-5 border border-white/20 text-white text-[12px] tracking-[0.2em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37]">
+              Of stuur een bericht via WhatsApp
+            </a>
+            <div class="text-[10px] tracking-[0.2em] uppercase text-white/40 text-center pt-2">
+              Gem. reactietijd onder 4 uur
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ CRM_SUBSCRIBE_URL }}>
+  // Leadformulier — POST naar het CRM en toon daarna de live-agendastap.
+  const form = document.getElementById('re-form');
+  const wrap = document.getElementById('re-form-wrap');
+  const done = document.getElementById('re-done');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const email = String(data.get('email') || '').trim();
+    if (!email) return;
+    try {
+      await fetch(CRM_SUBSCRIBE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          name: data.get('name'),
+          source: 'rotterdam-real-estate-landing',
+          tags: ['lead', 'real-estate', 'rotterdam', 'landing-page'],
+        }),
+      });
+    } catch (err) { /* stil falen — UX gaat door */ }
+    wrap?.classList.add('hidden');
+    done?.classList.remove('hidden');
+  });
+</script>
