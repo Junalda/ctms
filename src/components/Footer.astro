@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { footerServices, footerStudio, footerLocations } from '@/data/nav';
-import { BOOKING_URL, WHATSAPP_URL, CRM_SUBSCRIBE_URL } from '@/lib/booking';
+import { WHATSAPP_URL, CRM_SUBSCRIBE_URL } from '@/lib/booking';
 
 const year = new Date().getFullYear();
 ---
@@ -19,9 +19,7 @@ const year = new Date().getFullYear();
         </div>
         <div class="flex flex-col items-start lg:items-end gap-4">
           <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
             class="inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors"
           >
             Plan een gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} />
@@ -47,7 +45,7 @@ const year = new Date().getFullYear();
         </div>
         <p class="text-white/60 text-sm leading-relaxed max-w-sm font-light">
           Strategische visuele storytelling voor professionals en merken die onthouden willen worden.
-          Opgericht in Rotterdam door Gabriel — vertrouwen opbouwen met cinematische content.
+          Opgericht in Rotterdam door Gabriel vertrouwen opbouwen met cinematische content.
         </p>
         <form id="newsletter-form" class="mt-8 max-w-sm">
           <label class="text-[11px] tracking-[0.3em] uppercase text-white/50" for="newsletter-email">De Quarterly Brief</label>

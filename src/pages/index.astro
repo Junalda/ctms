@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
 import { IMG } from '@/lib/images';
-import { BOOKING_URL, WHATSAPP_URL } from '@/lib/booking';
+import { WHATSAPP_URL } from '@/lib/booking';
 
 const services = [
   { icon: 'lucide:camera', title: 'Vastgoed', sub: 'Fotografie & video', body: 'Verkoop panden sneller met cinematische beelden die een listing in verlangen veranderen.', link: '/real-estate', img: IMG.realEstate[0] },
@@ -11,7 +11,7 @@ const services = [
 ];
 
 const processSteps = [
-  { n: '01', t: 'Identiteit', d: 'We beginnen bij wie je bent — waarden, doelgroep, onderscheid.' },
+  { n: '01', t: 'Identiteit', d: 'We beginnen bij wie je bent: waarden, doelgroep, onderscheid.' },
   { n: '02', t: 'Strategie', d: 'Een contentraamwerk gebouwd voor waarde op de lange termijn.' },
   { n: '03', t: 'Productie', d: 'Cinematische opnames in foto, video en motion.' },
   { n: '04', t: 'Montage', d: 'Verhaal-eerst postproductie met consistente merkstijl.' },
@@ -19,14 +19,14 @@ const processSteps = [
 ];
 
 const testimonials = [
-  { q: 'Gabriel maakt niet alleen beelden — hij denkt mee. De campagne die hij bouwde verkocht ons penthouse van €1,8 mln in elf dagen, met drie concurrerende biedingen.', n: 'Marleen van Dam', r: 'Managing broker, Van Dam Real Estate', img: IMG.branding[2] },
+  { q: 'Gabriel maakt niet alleen beelden, hij denkt mee. De campagne die hij bouwde verkocht ons penthouse van €1,8 mln in elf dagen, met drie concurrerende biedingen.', n: 'Marleen van Dam', r: 'Managing broker, Van Dam Real Estate', img: IMG.branding[2] },
   { q: 'In zes maanden ging mijn LinkedIn van onzichtbaar naar inbound. De contentstrategie voelde minder als marketing en meer als mezelf worden, voor de camera.', n: 'Tomás Reijnders', r: 'Oprichter, Kapitaal Studio', img: IMG.branding[3] },
   { q: 'Hij heeft de zeldzame combinatie van het oog van een cineast en het brein van een strateeg. We hebben eindelijk een merk dat eruitziet zoals het zou moeten voelen.', n: 'Saskia Meyer', r: 'CEO, Meyer & Co.', img: IMG.branding[0] },
 ];
 ---
 
 <BaseLayout
-  title="Capture the Moment Solutions — Strategische visuele storytelling | Rotterdam"
+  title="Capture the Moment Solutions: strategische visuele storytelling | Rotterdam"
   description="Premium vastgoedfotografie, personal branding content en merkverhalen op film. Cinematische content gebouwd op vertrouwen en groei op lange termijn. Rotterdam, NL."
 >
   {/* ============= HERO ============= */}
@@ -49,10 +49,10 @@ const testimonials = [
             <span class="italic font-light">vertrouwen bouwen.</span>
           </h1>
           <p class="mt-8 text-lg md:text-xl text-white/70 font-light max-w-xl leading-relaxed animate-fade-up delay-200">
-            Strategische visuele storytelling voor vastgoed, personal brands en bedrijven die onthouden willen worden — niet alleen gezien.
+            Strategische visuele storytelling voor vastgoed, personal brands en bedrijven die onthouden willen worden, niet alleen gezien.
           </p>
           <div class="mt-12 flex flex-wrap items-center gap-5 animate-fade-up delay-300">
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-[#D4AF37] transition-all">
+            <a href="/contact" class="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-[#D4AF37] transition-all">
               Plan een gesprek
               <Icon name="lucide:arrow-up-right" width={16} height={16} class="group-hover:rotate-45 transition-transform" />
             </a>
@@ -92,14 +92,14 @@ const testimonials = [
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
       <div class="grid lg:grid-cols-12 gap-12 mb-20">
         <div class="lg:col-span-5">
-          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">01 — Wat we doen</div>
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">01 · Wat we doen</div>
           <h2 class="font-serif text-5xl md:text-6xl leading-[1.02] tracking-tight">
             Drie ambachten.<br />Eén filosofie.
           </h2>
         </div>
         <div class="lg:col-span-6 lg:col-start-7 flex items-end">
           <p class="text-lg text-white/60 font-light leading-relaxed">
-            Wij jagen geen trends na. We bouwen visuele identiteiten die zich opstapelen — content gemaakt voor merkwaarde op lange termijn, niet voor het algoritme van de week.
+            Wij jagen geen trends na. We bouwen visuele identiteiten die zich opstapelen, content gemaakt voor merkwaarde op lange termijn, niet voor het algoritme van de week.
           </p>
         </div>
       </div>
@@ -131,13 +131,13 @@ const testimonials = [
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
       <div class="grid lg:grid-cols-12 gap-16 items-center">
         <div class="lg:col-span-6 order-2 lg:order-1">
-          <div class="text-[11px] tracking-[0.4em] uppercase text-[#9C7C2A] mb-8">02 — Onze filosofie</div>
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#9C7C2A] mb-8">02 · Onze filosofie</div>
           <h2 class="font-serif text-5xl md:text-6xl leading-[1.02] tracking-tight mb-10">
             Vertrouwen boven viraliteit.<br />
             <span class="italic">Verhaal boven trend.</span>
           </h2>
           <div class="space-y-6 text-lg text-zinc-700 font-light leading-relaxed max-w-xl">
-            <p>Het internet beloont lawaai. Wij maken geen lawaai. We maken het soort visueel werk dat een tweede blik verdient — en een lang geheugen.</p>
+            <p>Het internet beloont lawaai. Wij maken geen lawaai. We maken het soort visueel werk dat een tweede blik verdient, en een lang geheugen.</p>
             <p>Elk beeld is met intentie gemaakt: voor wie het bedoeld is, wat het ze laat voelen en wat het ze vraagt om vervolgens te doen. Dat is het verschil tussen content en een verhaal.</p>
           </div>
           <div class="mt-12 grid grid-cols-2 gap-8 max-w-md">
@@ -157,7 +157,7 @@ const testimonials = [
             <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur p-6 border-l-2 border-[#D4AF37]">
               <div class="text-[10px] tracking-[0.4em] uppercase text-zinc-500 mb-2">Een woord van de oprichter</div>
               <p class="font-serif text-xl italic text-zinc-800 leading-snug">"Ik wil geen content maken die verdwijnt. Ik wil werk bouwen dat het fundament van een merk wordt."</p>
-              <div class="mt-3 text-xs tracking-wide text-zinc-600">— Gabriel, oprichter</div>
+              <div class="mt-3 text-xs tracking-wide text-zinc-600">Gabriel, oprichter</div>
             </div>
           </div>
         </div>
@@ -170,7 +170,7 @@ const testimonials = [
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
         <div>
-          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">03 — Geselecteerd werk</div>
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">03 · Geselecteerd werk</div>
           <h2 class="font-serif text-5xl md:text-6xl leading-[1.02] tracking-tight">Een portfolio van vertrouwen.</h2>
         </div>
         <a href="/portfolio" class="inline-flex items-center gap-3 text-[12px] tracking-[0.2em] uppercase text-white/70 hover:text-[#D4AF37] group">
@@ -227,7 +227,7 @@ const testimonials = [
   <section class="bg-zinc-950 py-32 lg:py-40 border-t border-white/5">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
       <div class="text-center max-w-2xl mx-auto mb-20">
-        <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">04 — De werkwijze</div>
+        <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">04 · De werkwijze</div>
         <h2 class="font-serif text-5xl md:text-6xl leading-[1.02] tracking-tight">Een studio-aanpak.</h2>
         <p class="mt-6 text-white/60 font-light text-lg">Vijf fases. Eén uitkomst: een body of work die in waarde toeneemt door de tijd heen.</p>
       </div>
@@ -254,7 +254,7 @@ const testimonials = [
   <section class="bg-black py-32 lg:py-40">
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10">
       <div class="text-center mb-16">
-        <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">05 — Stemmen</div>
+        <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">05 · Stemmen</div>
         <h2 class="font-serif text-5xl md:text-6xl leading-[1.02] tracking-tight">Wat klanten zeggen.</h2>
       </div>
 
@@ -301,7 +301,7 @@ const testimonials = [
       <div class="absolute inset-0 bg-black/75"></div>
     </div>
     <div class="relative max-w-[1100px] mx-auto px-6 lg:px-10 text-center">
-      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">06 — Begin</div>
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">06 · Begin</div>
       <h2 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.98] tracking-tight">
         Jouw merk verdient<br />
         <span class="italic font-light">een verhaal.</span>
@@ -310,7 +310,7 @@ const testimonials = [
         Plan een strategiegesprek van 30 minuten. We bespreken je doelgroep, je onderscheid en het soort visuele aanwezigheid waarin het de moeite waard is te investeren.
       </p>
       <div class="mt-12 flex flex-wrap items-center justify-center gap-4">
-        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 px-10 py-5 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+        <a href="/contact" class="group inline-flex items-center gap-3 px-10 py-5 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
           Plan een gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} class="group-hover:rotate-45 transition-transform" />
         </a>
         <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="inline-flex items-center gap-3 px-10 py-5 border border-white/30 text-white text-[12px] tracking-[0.2em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37] transition-colors">
