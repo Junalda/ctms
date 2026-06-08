@@ -2,19 +2,18 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
 import { IMG } from '@/lib/images';
-import { BOOKING_URL } from '@/lib/booking';
 
 const steps = [
   { n: '01', t: 'Brand-identiteitsgesprek', sub: 'Week 1', d: 'Een diepgaande sessie van 90 minuten over je waarden, je doelgroep en de visuele positie die alleen jij kunt claimen. We vertrekken met helderheid, niet met een briefingsjabloon.', img: IMG.bts[0] },
   { n: '02', t: 'Contentstrategie', sub: 'Week 2', d: 'Een op maat gemaakte visuele routekaart: pijlers, formats, tone of voice, frequentie en KPI’s. Gebouwd voor omzetimpact, niet alleen bereik.', img: IMG.business[1] },
-  { n: '03', t: 'Productie', sub: 'Week 3 — 4', d: 'Een door de regisseur geleide opnamedag (of -week) met volledige crew, belichting en apparatuur. Cinematische standaarden in foto en video.', img: IMG.bts[2] },
-  { n: '04', t: 'Montage & branding', sub: 'Week 4 — 5', d: 'Verhaal-eerst postproductie: kleurgrading, sound design, motion graphics en een consistente visuele taal over elke deliverable.', img: IMG.realEstate[1] },
+  { n: '03', t: 'Productie', sub: 'Week 3–4', d: 'Een door de regisseur geleide opnamedag (of -week) met volledige crew, belichting en apparatuur. Cinematische standaarden in foto en video.', img: IMG.bts[2] },
+  { n: '04', t: 'Montage & branding', sub: 'Week 4–5', d: 'Verhaal-eerst postproductie: kleurgrading, sound design, motion graphics en een consistente visuele taal over elke deliverable.', img: IMG.realEstate[1] },
   { n: '05', t: 'Groei & optimalisatie', sub: 'Doorlopend', d: 'We meten de inbound, verfijnen het raamwerk en laten de contentbibliotheek kwartaal na kwartaal groeien.', img: IMG.branding[1] },
 ];
 ---
 
 <BaseLayout
-  title="Werkwijze — Vijf fases, één uitkomst | Capture the Moment Solutions"
+  title="Werkwijze: vijf fases, één uitkomst | Capture the Moment Solutions"
   description="Onze werkwijze: van brand-identiteitsgesprek tot doorlopende groei. Heldere fases, eerlijke planningen en een systeem dat meegroeit met je merk."
 >
   <section class="pt-40 pb-20 bg-black">
@@ -25,7 +24,7 @@ const steps = [
         <span class="italic font-light">Eén uitkomst.</span>
       </h1>
       <p class="mt-10 max-w-2xl text-lg text-white/60 font-light">
-        We behandelen elke samenwerking als een studioproductie — heldere fases, eerlijke planningen en een systeem dat meeschaalt naarmate je merk groeit.
+        We behandelen elke samenwerking als een studioproductie: heldere fases, eerlijke planningen en een systeem dat meeschaalt naarmate je merk groeit.
       </p>
     </div>
   </section>
@@ -52,7 +51,7 @@ const steps = [
     <div class="max-w-3xl mx-auto px-6">
       <h2 class="font-serif text-5xl md:text-6xl">Klaar om te beginnen?</h2>
       <p class="mt-6 text-white/60 font-light text-lg">Het eerste gesprek is altijd gratis. Binnen 30 minuten weten we of we de juiste match zijn.</p>
-      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="mt-10 inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+      <a href="/contact" class="mt-10 inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
         Plan een gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} />
       </a>
     </div>

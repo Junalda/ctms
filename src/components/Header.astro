@@ -1,7 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { navLinks } from '@/data/nav';
-import { BOOKING_URL } from '@/lib/booking';
 
 const pathname = Astro.url.pathname;
 ---
@@ -36,9 +35,7 @@ const pathname = Astro.url.pathname;
 
     <div class="flex items-center gap-3">
       <a
-        href={BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/contact"
         class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 border border-white/20 hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-black text-white text-[12px] tracking-[0.15em] uppercase font-light transition-all"
       >
         Plan een gesprek
@@ -63,9 +60,7 @@ const pathname = Astro.url.pathname;
         </a>
       ))}
       <a
-        href={BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/contact"
         class="mt-2 text-center px-5 py-3 bg-[#D4AF37] text-black text-xs tracking-[0.15em] uppercase"
       >
         Plan een gesprek
