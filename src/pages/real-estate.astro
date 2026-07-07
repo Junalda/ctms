@@ -18,13 +18,6 @@ const faqs = [
   { q: 'Wat als het weer slecht is?', a: 'Schemer- en buitenopnames zijn weersafhankelijk en worden kosteloos verzet. We volgen de weersverwachting 48 uur vooruit en plannen proactief om.' },
 ];
 
-const proof = [
-  { v: '40%', l: 'Sneller verkocht' },
-  { v: '3,2×', l: 'Meer aanvragen per listing' },
-  { v: '120+', l: 'Panden geschoten in 2025' },
-  { v: '48u', l: 'Gemiddelde levering' },
-];
-
 const economics = [
   { i: 'lucide:clock', t: 'Tijd op de markt', d: 'Professioneel gefotografeerde listings gaan 40% sneller op Funda en MLS-portalen.' },
   { i: 'lucide:trending-up', t: 'Vraagprijs', d: 'Premiumbeelden ondersteunen een 2–7% hogere vraagprijs, en beschermen die in de onderhandeling.' },
@@ -57,15 +50,6 @@ const economics = [
           Boek een shoot <Icon name="lucide:arrow-up-right" width={16} height={16} />
         </a>
         <a href="#packages" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white text-[12px] tracking-[0.2em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37]">Bekijk pakketten</a>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t border-white/10">
-        {proof.map((s) => (
-          <div>
-            <div class="font-serif text-5xl text-[#D4AF37]">{s.v}</div>
-            <div class="text-xs tracking-[0.2em] uppercase text-white/50 mt-2">{s.l}</div>
-          </div>
-        ))}
       </div>
     </div>
   </section>
