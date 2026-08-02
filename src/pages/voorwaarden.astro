@@ -1,0 +1,113 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    n: 1,
+    t: 'Herzieningen (revisies)',
+    paras: [
+      'Opgeleverde foto’s kunnen binnen 7 dagen na levering éénmalig kosteloos worden herzien voor redelijke correcties zoals helderheid, kleur of uitsnede. Verdere bewerkingen of aanvullende revisierondes worden in rekening gebracht tegen het geldende uurtarief.',
+      'Vanaf de tweede revisieronde geldt een tarief van €22,50 exclusief btw per uur nabewerking. De daadwerkelijk bestede bewerkingstijd wordt in rekening gebracht.',
+    ],
+  },
+  {
+    n: 2,
+    t: 'Gebruiksrecht',
+    paras: [
+      'De geleverde beelden mogen uitsluitend worden gebruikt voor de verkoop- of verhuurpresentatie van de betreffende woning via Funda, sociale media, websites en andere marketingkanalen van de opdrachtgever. Het auteursrecht blijft te allen tijde eigendom van de fotograaf.',
+    ],
+  },
+  {
+    n: 3,
+    t: 'Levertermijn',
+    paras: ['De standaard levertijd bedraagt 24 tot 48 uur na de fotoshoot, tenzij anders overeengekomen.'],
+  },
+  {
+    n: 4,
+    t: 'Spoedlevering',
+    paras: ['Bij spoedlevering wordt een toeslag van €25 exclusief btw in rekening gebracht. Spoedleveringen zijn afhankelijk van beschikbaarheid.'],
+  },
+  {
+    n: 5,
+    t: 'Annulering',
+    paras: ['Bij annulering binnen 24 uur voor aanvang van de afspraak behoudt de fotograaf zich het recht voor om 50% van het afgesproken bedrag in rekening te brengen.'],
+  },
+  {
+    n: 6,
+    t: 'Toegang tot de woning',
+    paras: ['De opdrachtgever draagt zorg voor toegang tot de woning op het afgesproken tijdstip. Eventuele wachttijd of een noodzakelijke tweede afspraak als gevolg van ontbrekende toegang kan aanvullend worden gefactureerd.'],
+  },
+  {
+    n: 7,
+    t: 'Presentatie van de woning',
+    paras: ['De woning dient bij aankomst van de fotograaf gereed te zijn voor fotografie. Opruim- of stylingwerkzaamheden vallen niet onder de standaard dienstverlening.'],
+  },
+  {
+    n: 8,
+    t: 'Weersomstandigheden',
+    paras: ['Bij slechte weersomstandigheden kan in overleg worden besloten de afspraak te verplaatsen indien dit de kwaliteit van de beelden ten goede komt.'],
+  },
+  {
+    n: 9,
+    t: 'Aansprakelijkheid',
+    paras: ['De aansprakelijkheid van de fotograaf is beperkt tot maximaal het factuurbedrag van de betreffende opdracht.'],
+  },
+  {
+    n: 10,
+    t: 'Betaling',
+    paras: ['Facturen dienen binnen 14 dagen na factuurdatum te worden voldaan, tenzij schriftelijk anders overeengekomen.'],
+  },
+  {
+    n: 11,
+    t: 'Portfoliorecht',
+    paras: ['De fotograaf behoudt zich het recht voor om gemaakte beelden te gebruiken voor portfolio-, website- en promotiedoeleinden, tenzij vooraf schriftelijk anders overeengekomen.'],
+  },
+  {
+    n: 12,
+    t: 'Woningen groter dan standaard',
+    paras: ['Voor woningen groter dan 200 m² of opdrachten met specifieke wensen kan een maatwerkofferte worden opgesteld.'],
+  },
+  {
+    n: 13,
+    t: 'Extra foto’s',
+    paras: ['Indien tijdens of na de opdracht aanvullende foto’s worden gevraagd die buiten het gekozen pakket vallen, kunnen hiervoor extra kosten in rekening worden gebracht.'],
+  },
+  {
+    n: 14,
+    t: 'Geldigheidsduur offerte',
+    paras: ['Offertes zijn 30 dagen geldig vanaf offertedatum, tenzij anders vermeld.'],
+  },
+];
+
+const pad = (n: number) => (n < 10 ? `0${n}` : `${n}`);
+---
+
+<BaseLayout
+  title="Algemene voorwaarden | Capture the Moment Solutions"
+  description="De algemene voorwaarden van Capture the Moment Solutions voor vastgoedfotografie: revisies, gebruiksrecht, levertijd, betaling en meer."
+>
+  <section class="pt-40 pb-16 bg-black">
+    <div class="max-w-[900px] mx-auto px-6 lg:px-10">
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Juridisch</div>
+      <h1 class="font-serif text-5xl md:text-7xl leading-[0.95] tracking-tight">Algemene voorwaarden</h1>
+    </div>
+  </section>
+
+  <section class="bg-black pb-32">
+    <div class="max-w-[900px] mx-auto px-6 lg:px-10">
+      <div class="space-y-12 border-t border-white/10 pt-12">
+        {sections.map((s) => (
+          <div class="grid md:grid-cols-12 gap-4 md:gap-8">
+            <div class="md:col-span-1 font-mono text-sm text-[#D4AF37] pt-1">{pad(s.n)}</div>
+            <div class="md:col-span-11">
+              <h2 class="font-serif text-2xl md:text-3xl mb-4 tracking-tight">{s.t}</h2>
+              <div class="space-y-4 text-white/70 font-light leading-relaxed">
+                {s.paras.map((p) => <p>{p}</p>)}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

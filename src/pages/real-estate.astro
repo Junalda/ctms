@@ -4,9 +4,55 @@ import { Icon } from 'astro-icon/components';
 import { IMG } from '@/lib/images';
 
 const packages = [
-  { name: 'Essentials', price: '€595', desc: 'Voor losse listings onder €750K', features: ['25 bewerkte foto’s', 'Verticale reel van 60s', 'Schemeropname exterieur (1)', 'Levering binnen dezelfde week', 'Klaar voor plattegrond'] },
-  { name: 'Signature', price: '€1.250', desc: 'Voor premiumpanden €750K – €2M', popular: true, features: ['45 bewerkte foto’s', 'Cinematische film van 90s', 'Schemer- & dageraadserie', 'Lifestyle-stagingbeelden', 'Levering binnen 48 uur'] },
-  { name: 'Collector', price: 'Op aanvraag', desc: 'Voor landgoederen, nieuwbouw en projecten', features: ['Onbeperkte fotoselectie', 'Door regisseur geleide film (2–3 min)', 'Lucht + interieur met gimbal', 'Custom soundscape', 'Assets voor de listingsite', 'Pers-klaar pakket'] },
+  {
+    name: 'Basispakket',
+    price: '€130',
+    features: [
+      '20 professionele HDR-foto’s',
+      'Verticale lijnen gecorrigeerd',
+      'Natuurlijke kleurcorrectie',
+      'Oplevering binnen 24 tot 48 uur',
+      'Exclusief gebruik voor woningpresentaties (Funda, social media en vergelijkbare kanalen)',
+    ],
+    fit: 'Snelle plaatsing van woningen met sterke en betrouwbare beelden.',
+  },
+  {
+    name: 'Pluspakket',
+    price: '€165',
+    features: [
+      '25 professionele HDR-foto’s',
+      'Verticale lijnen gecorrigeerd',
+      '360° foto’s van 3 tot 5 ruimtes',
+      'Oplevering binnen 24 tot 48 uur',
+      'Exclusief gebruik voor woningpresentaties (Funda, social media en vergelijkbare kanalen)',
+    ],
+    fit: 'Woningen waarbij extra presentatie en online beleving gewenst is.',
+  },
+  {
+    name: 'Groot Pakket',
+    price: '€210',
+    features: [
+      '30+ professionele HDR-foto’s',
+      'Extra aandacht voor licht, ruimte en overzicht',
+      'Focus op maximale beeldkwaliteit',
+      '360° foto’s van circa 5 tot 7 ruimtes',
+      'Oplevering binnen 24 tot 48 uur',
+      'Exclusief gebruik voor woningpresentaties (Funda, social media en vergelijkbare kanalen)',
+    ],
+    fit: 'Gezinswoningen, villa’s, luxe woningen en woningen vanaf circa 160 m².',
+  },
+];
+
+const extras = [
+  { t: 'Spoedoplevering', price: '+ €25', d: 'Oplevering op dezelfde dag.' },
+  { t: 'Fotoshoot in het weekend', price: '+ €25', d: '' },
+  { t: 'Reiskosten', price: '€0,35 / km', d: 'Eerste 15 kilometer inbegrepen, daarna €0,35 per kilometer.' },
+];
+
+const voorwaarden = [
+  'Alle prijzen zijn exclusief btw.',
+  'Voor woningen groter dan 200 m² wordt een maatwerkofferte opgesteld.',
+  'Voor specifieke wensen of afwijkende opdrachten wordt een maatwerkofferte opgesteld.',
 ];
 
 const faqs = [
@@ -105,25 +151,56 @@ const economics = [
       <div class="text-center max-w-2xl mx-auto mb-20">
         <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">Tarieven</div>
         <h2 class="font-serif text-5xl md:text-6xl leading-tight">Eerlijke pakketten. Geen verrassingen.</h2>
-        <p class="mt-6 text-white/60 font-light text-lg">Alle pakketten zijn inclusief licentie voor marketing, social en listingportalen.</p>
+        <p class="mt-6 text-white/60 font-light text-lg">Vaste tarieven, afgestemd op wat je woning nodig heeft. Alle prijzen zijn exclusief btw.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-px bg-white/5">
         {packages.map((p) => (
-          <div class={`bg-zinc-950 p-10 lg:p-12 flex flex-col ${p.popular ? 'ring-1 ring-[#D4AF37] relative' : ''}`}>
-            {p.popular && <div class="absolute -top-3 left-10 bg-[#D4AF37] text-black text-[10px] tracking-[0.3em] uppercase px-3 py-1">Meest geboekt</div>}
-            <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-4">{p.desc}</div>
+          <div class="bg-zinc-950 p-10 lg:p-12 flex flex-col">
             <h3 class="font-serif text-4xl mb-2">{p.name}</h3>
-            <div class="font-serif text-5xl text-[#D4AF37] mb-8">{p.price}</div>
-            <ul class="space-y-3 mb-10 flex-1">
+            <div class="flex items-baseline gap-2 mb-8">
+              <span class="font-serif text-5xl text-[#D4AF37]">{p.price}</span>
+              <span class="text-xs tracking-wide text-white/40">excl. btw</span>
+            </div>
+            <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-4">Inbegrepen</div>
+            <ul class="space-y-3 mb-8">
               {p.features.map((f) => (
                 <li class="flex items-start gap-3 text-sm text-white/70 font-light">
                   <Icon name="lucide:check" width={16} height={16} class="text-[#D4AF37] mt-0.5 flex-shrink-0" />{f}
                 </li>
               ))}
             </ul>
-            <a href="/contact" class={`text-center px-6 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-colors ${p.popular ? 'bg-[#D4AF37] text-black hover:bg-white' : 'border border-white/20 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]'}`}>Reserveren</a>
+            <div class="border-t border-white/10 pt-6 mb-8">
+              <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-2">Geschikt voor</div>
+              <p class="text-sm text-white/60 font-light leading-relaxed">{p.fit}</p>
+            </div>
+            <a href="/contact" class="mt-auto text-center px-6 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-colors border border-white/20 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]">Reserveren</a>
           </div>
         ))}
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 max-w-4xl mx-auto mt-20 pt-16 border-t border-white/10">
+        <div>
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Optionele extra’s</div>
+          <ul class="space-y-6">
+            {extras.map((e) => (
+              <li class="border-b border-white/10 pb-6">
+                <div class="flex items-baseline justify-between gap-4">
+                  <span class="font-serif text-xl text-white">{e.t}</span>
+                  <span class="text-[#D4AF37] font-light whitespace-nowrap">{e.price}</span>
+                </div>
+                {e.d && <p class="text-sm text-white/50 font-light mt-1">{e.d}</p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Belangrijke voorwaarden</div>
+          <ul class="space-y-4 text-white/60 font-light">
+            {voorwaarden.map((v) => (
+              <li class="flex items-start gap-3"><Icon name="lucide:check" width={16} height={16} class="text-[#D4AF37] mt-1 flex-shrink-0" />{v}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   </section>
