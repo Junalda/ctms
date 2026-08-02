@@ -4,9 +4,8 @@
 export const BOOKING_URL =
   'https://famous.ai/api/crm/6a0ecd3f814a46bf88ce2eba/calendar/public?calendarId=d9a86bfc-84f6-40c2-ace5-7153b548fb40&view=booking';
 
-// WhatsApp-link voor Gabriel. LET OP: dit is nog een placeholdernummer
-// (+31 6 00 00 00 00) uit de originele code — vervang door het echte nummer.
-export const WHATSAPP_URL = 'https://wa.me/31600000000';
+// WhatsApp-link voor Gabriel — echt nummer +31 6 87 67 13 44 (0031687671344).
+export const WHATSAPP_URL = 'https://wa.me/31687671344';
 
 // Endpoint van de CRM waar formulier-leads naartoe gaan.
 export const CRM_SUBSCRIBE_URL =
