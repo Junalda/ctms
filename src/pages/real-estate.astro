@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
-import { IMG } from '@/lib/images';
 
 const packages = [
   {
@@ -110,7 +109,7 @@ const economics = [
       </div>
 
       <div class="relative aspect-[16/9] overflow-hidden bg-zinc-900 select-none">
-        <img src={IMG.realEstate[2]} alt="Na" class="absolute inset-0 w-full h-full object-cover" />
+        <img src="/vastgoed-na.jpg" alt="Na" class="absolute inset-0 w-full h-full object-cover" />
         <div id="ba-overlay" class="absolute inset-0 overflow-hidden" style="width: 50%">
           <img id="ba-before" src="/vastgoed-voor.jpg" alt="Voor" class="absolute inset-0 w-full h-full object-cover grayscale brightness-75" style="width: 200%" />
         </div>
