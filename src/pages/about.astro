@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
-import { IMG } from '@/lib/images';
 
 const values = [
   { icon: 'lucide:heart', t: 'Authenticiteit', d: 'De meest echte versie van jou is de best verkoopbare.' },
@@ -43,7 +42,7 @@ const values = [
         <div class="lg:col-span-5">
           <div class="sticky top-32">
             <div class="aspect-[4/5] overflow-hidden">
-              <img src={IMG.gabriel} alt="Gabriel, oprichter" class="w-full h-full object-cover" />
+              <img src="/gabriel-portret.jpg" alt="Gabriel, oprichter" class="w-full h-full object-cover" />
             </div>
             <div class="mt-6 grid grid-cols-2 gap-4 text-xs tracking-wide text-white/50">
               <div><div class="text-white/30 text-[10px] tracking-[0.3em] uppercase mb-1">Standplaats</div>Rotterdam, NL</div>
