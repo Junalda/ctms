@@ -19,13 +19,12 @@ const year = new Date().getFullYear();
         </div>
         <div class="flex flex-col items-start lg:items-end gap-4">
           <a
-            href="/contact"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
             class="inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors"
           >
-            Plan een gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} />
-          </a>
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="text-white/60 hover:text-white text-sm tracking-wide">
-            of stuur een bericht via WhatsApp →
+            <Icon name="lucide:message-circle" width={16} height={16} /> WhatsApp Gabriel
           </a>
         </div>
       </div>
