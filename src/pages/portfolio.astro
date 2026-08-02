@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
-import { IMG } from '@/lib/images';
 
 // Categorieën in het Nederlands; de waarde dient tegelijk als filtersleutel.
 const cats = ['Alles', 'Vastgoed', 'Personal branding', 'Merkverhalen'];
@@ -10,14 +9,11 @@ const items = [
   { id: 1, title: 'Uitzicht Kop van Zuid', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-uitzicht.jpg', wide: true, desc: 'Uitzicht over de Rijnhaven en de skyline van de Kop van Zuid, vastgelegd vanuit het appartement in de schemering.' },
   { id: 2, title: 'Anytime Studio', cat: 'Personal branding', loc: 'Rotterdam', img: '/werk-anytime-studio.jpg', tall: true, desc: 'Contentcover voor Anytime Studio: aflevering 1 van een contentreeks die creators een podium geeft.' },
   { id: 3, title: 'Woonkamer', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-woonkamer.jpg', desc: 'Ruime woonkamer met loungebank, donkere accentwand en zicht over de stad.' },
-  { id: 4, title: 'Kapitaal Studio', cat: 'Merkverhalen', loc: 'Amsterdam', img: IMG.business[1], desc: 'Merkdocumentaire voor een creatief productiebedrijf.' },
+  { id: 4, title: 'INFNTY Session', cat: 'Merkverhalen', loc: 'Rotterdam', img: '/werk-infnty-session.jpg', tall: true, desc: 'De INFNTY Session: een studiogesprek waarin creators hun verhaal delen, vastgelegd als merkstorytelling.' },
   { id: 5, title: 'Keuken', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-keuken.jpg', desc: 'Strakke keuken met inbouwapparatuur, rvs-schouw en natuurstenen werkblad.' },
-  { id: 6, title: 'Meyer & Co.', cat: 'Merkverhalen', loc: 'Utrecht', img: IMG.business[0], wide: true, desc: 'Jaarlijkse merkfilm voor een Nederlands financieel adviesbureau.' },
   { id: 8, title: 'Eethoek', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-eethoek.jpg', tall: true, desc: 'Eethoek met ovale tafel, designverlichting en uitzicht op de skyline.' },
   { id: 10, title: 'Terras', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-terras.jpg', wide: true, desc: 'Ruim terras met hangstoel en panoramisch uitzicht over Rotterdam.' },
-  { id: 11, title: 'Atelier Nordic', cat: 'Merkverhalen', loc: 'Rotterdam', img: IMG.bts[2], desc: 'Behind-the-scenes-documentaire voor een meubelmaker.' },
   { id: 13, title: 'Open leefruimte', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-leefruimte.jpg', desc: 'Open leefruimte met loungehoek, keuken en toegang tot het terras: het overzicht van de woonverdieping.' },
-  { id: 14, title: 'Nordic Haus', cat: 'Merkverhalen', loc: 'Rotterdam', img: IMG.bts[1], tall: true, desc: 'Oprichtersverhaal, productiefilm en productbeelden.' },
 ];
 ---
 
