@@ -1,0 +1,221 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+// Laatst bijgewerkt: vandaag (vastgezet bij publicatie).
+const laatstBijgewerkt = '3 augustus 2026';
+
+// Elke sectie bestaat uit blokken: een paragraaf (p), een tussenkop (sub) of een opsomming (list).
+const sections = [
+  {
+    n: 1,
+    t: 'Wie zijn wij?',
+    blocks: [
+      { p: 'Capture the Moment Solutions biedt professionele fotografie- en videodiensten aan voor onder andere:' },
+      {
+        list: [
+          'Makelaars en vastgoedeigenaren',
+          'Ondernemers',
+          'Personal brands',
+          'Bedrijven die hun online zichtbaarheid willen vergroten',
+          'Organisaties die hun verhaal professioneel willen presenteren',
+        ],
+      },
+      { p: 'Heb je vragen over deze privacyverklaring? Neem dan contact met ons op via de contactgegevens op onze website.' },
+    ],
+  },
+  {
+    n: 2,
+    t: 'Welke persoonsgegevens verzamelen wij?',
+    blocks: [
+      { p: 'Wanneer je contact met ons opneemt of een aanvraag indient, kunnen wij de volgende gegevens verwerken:' },
+      { sub: 'Persoonlijke gegevens' },
+      {
+        list: [
+          'Voor- en achternaam',
+          'E-mailadres',
+          'Telefoonnummer',
+          'Bedrijfsnaam',
+          'Functie (indien van toepassing)',
+        ],
+      },
+      { sub: 'Opdrachtgegevens' },
+      { p: 'Bij vastgoedopdrachten kunnen wij tevens verwerken:' },
+      {
+        list: [
+          'Adres van de woning',
+          'Type woning',
+          'Gewenste datum',
+          'Eventuele opmerkingen of specifieke wensen',
+        ],
+      },
+      { p: 'Bij personal branding of bedrijfsopdrachten kunnen wij verwerken:' },
+      {
+        list: [
+          'Bedrijfsinformatie',
+          'Projectinformatie',
+          'Doelstellingen van de opdracht',
+          'Overige informatie die je vrijwillig verstrekt',
+        ],
+      },
+    ],
+  },
+  {
+    n: 3,
+    t: 'Waarom verzamelen wij deze gegevens?',
+    blocks: [
+      { p: 'Wij gebruiken jouw gegevens uitsluitend om:' },
+      {
+        list: [
+          'Contact met je op te nemen',
+          'Offertes op te stellen',
+          'Opdrachten uit te voeren',
+          'Facturen te versturen',
+          'Onze dienstverlening te verbeteren',
+          'Vragen te beantwoorden',
+          'Afspraken in te plannen',
+        ],
+      },
+      { p: 'Wij verkopen jouw persoonsgegevens nooit aan derden.' },
+    ],
+  },
+  {
+    n: 4,
+    t: "Foto's en video's",
+    blocks: [
+      { p: "Tijdens een opdracht worden foto's en/of video's gemaakt. Deze beelden worden uitsluitend gebruikt voor het afgesproken doel." },
+      { p: 'Daarnaast kunnen beelden worden gebruikt voor:' },
+      {
+        list: ['Portfolio', 'Website', 'Social media', 'Promotionele uitingen'],
+      },
+      { p: 'Dit gebeurt alleen wanneer hiervoor toestemming is gegeven of wanneer dit vooraf contractueel is overeengekomen.' },
+    ],
+  },
+  {
+    n: 5,
+    t: 'Contactformulier',
+    blocks: [
+      { p: 'Wanneer je het contactformulier of aanvraagformulier invult, gebruiken wij jouw gegevens uitsluitend om jouw aanvraag te behandelen en contact met je op te nemen.' },
+    ],
+  },
+  {
+    n: 6,
+    t: 'Bewaartermijn',
+    blocks: [
+      { p: 'Persoonsgegevens worden niet langer bewaard dan noodzakelijk is voor het uitvoeren van onze dienstverlening of zolang wij wettelijk verplicht zijn deze gegevens te bewaren.' },
+    ],
+  },
+  {
+    n: 7,
+    t: 'Beveiliging',
+    blocks: [
+      { p: 'Wij nemen passende technische en organisatorische maatregelen om jouw persoonsgegevens te beschermen tegen verlies, misbruik of onbevoegde toegang.' },
+    ],
+  },
+  {
+    n: 8,
+    t: 'Delen met derden',
+    blocks: [
+      { p: 'Wij delen persoonsgegevens uitsluitend met derden wanneer dit noodzakelijk is voor onze dienstverlening of wanneer wij daartoe wettelijk verplicht zijn. Denk hierbij bijvoorbeeld aan:' },
+      {
+        list: ['Boekhoudsoftware', 'Betaalproviders', 'Cloudopslag', 'IT-dienstverleners'],
+      },
+      { p: 'Deze partijen verwerken gegevens uitsluitend in opdracht van Capture the Moment Solutions.' },
+    ],
+  },
+  {
+    n: 9,
+    t: 'Cookies',
+    blocks: [
+      { p: 'Onze website kan gebruikmaken van cookies om de website goed te laten functioneren en het gebruik van de website te analyseren.' },
+      { p: 'Indien analytische of marketingcookies worden gebruikt, vragen wij hiervoor vooraf toestemming via een cookiebanner.' },
+    ],
+  },
+  {
+    n: 10,
+    t: 'Jouw rechten',
+    blocks: [
+      { p: 'Je hebt het recht om:' },
+      {
+        list: [
+          'Jouw persoonsgegevens in te zien',
+          'Jouw gegevens te laten corrigeren',
+          'Jouw gegevens te laten verwijderen',
+          'Bezwaar te maken tegen verwerking',
+          'Verwerking te beperken',
+          'Jouw gegevens over te laten dragen',
+        ],
+      },
+      { p: 'Wil je gebruikmaken van één van deze rechten? Neem dan contact met ons op.' },
+    ],
+  },
+  {
+    n: 11,
+    t: 'Klachten',
+    blocks: [
+      { p: 'Ben je van mening dat wij niet zorgvuldig omgaan met jouw persoonsgegevens? Dan horen wij dat graag.' },
+      { p: 'Daarnaast heb je het recht een klacht in te dienen bij de Autoriteit Persoonsgegevens.' },
+    ],
+  },
+  {
+    n: 12,
+    t: 'Wijzigingen',
+    blocks: [
+      { p: 'Capture the Moment Solutions behoudt zich het recht voor deze privacyverklaring te wijzigen wanneer wetgeving of onze dienstverlening daarom vraagt.' },
+      { p: 'De meest actuele versie is altijd beschikbaar op onze website.' },
+    ],
+  },
+];
+
+const pad = (n: number) => (n < 10 ? `0${n}` : `${n}`);
+---
+
+<BaseLayout
+  title="Privacyverklaring | Capture the Moment Solutions"
+  description="De privacyverklaring van Capture the Moment Solutions: welke persoonsgegevens wij verzamelen, waarom, en hoe wij hiermee omgaan."
+>
+  <section class="pt-40 pb-16 bg-black">
+    <div class="max-w-[900px] mx-auto px-6 lg:px-10">
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Juridisch</div>
+      <h1 class="font-serif text-5xl md:text-7xl leading-[0.95] tracking-tight">Privacyverklaring</h1>
+      <p class="mt-6 text-sm tracking-wide text-white/40 font-light">Laatst bijgewerkt: {laatstBijgewerkt}</p>
+      <p class="mt-8 max-w-2xl text-lg text-white/60 font-light leading-relaxed">
+        Capture the Moment Solutions hecht veel waarde aan jouw privacy. In deze privacyverklaring leggen wij uit welke
+        persoonsgegevens wij verzamelen, waarom wij deze verzamelen en hoe wij hiermee omgaan. Door gebruik te maken van
+        onze website ga je akkoord met deze privacyverklaring.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-black pb-32">
+    <div class="max-w-[900px] mx-auto px-6 lg:px-10">
+      <div class="space-y-12 border-t border-white/10 pt-12">
+        {sections.map((s) => (
+          <div class="grid md:grid-cols-12 gap-4 md:gap-8">
+            <div class="md:col-span-1 font-mono text-sm text-[#D4AF37] pt-1">{pad(s.n)}</div>
+            <div class="md:col-span-11">
+              <h2 class="font-serif text-2xl md:text-3xl mb-4 tracking-tight">{s.t}</h2>
+              <div class="space-y-4 text-white/70 font-light leading-relaxed">
+                {s.blocks.map((b) =>
+                  'sub' in b ? (
+                    <h3 class="text-[11px] tracking-[0.3em] uppercase text-white/40 pt-2">{b.sub}</h3>
+                  ) : 'list' in b ? (
+                    <ul class="space-y-2">
+                      {b.list.map((li) => (
+                        <li class="flex gap-3">
+                          <span class="text-[#D4AF37] mt-1">·</span>
+                          <span>{li}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{b.p}</p>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
