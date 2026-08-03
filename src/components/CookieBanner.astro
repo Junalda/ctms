@@ -1,0 +1,65 @@
+---
+// Cookiebanner met toestemming (Accepteren / Weigeren). De keuze wordt in
+// localStorage bewaard onder `ctms-cookie-consent` ('accepted' | 'declined'),
+// zodat de banner daarna niet meer verschijnt. Verborgen tot de client-side
+// JS bevestigt dat er nog geen keuze is gemaakt (voorkomt flikkering).
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-0 inset-x-0 z-[90] hidden"
+  role="dialog"
+  aria-live="polite"
+  aria-label="Cookievoorkeuren"
+>
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-10 pb-6">
+    <div class="bg-zinc-950/95 backdrop-blur-xl border border-white/10 p-6 md:p-8 flex flex-col lg:flex-row lg:items-center gap-6 shadow-2xl">
+      <p class="text-sm text-white/70 font-light leading-relaxed max-w-3xl">
+        Wij gebruiken functionele cookies om de website goed te laten werken. Met jouw toestemming plaatsen wij
+        ook analytische cookies om het gebruik te meten en onze dienstverlening te verbeteren. Lees meer in onze
+        <a href="/privacy" class="text-[#D4AF37] underline underline-offset-4 hover:text-white transition-colors">privacyverklaring</a>.
+      </p>
+      <div class="flex items-center gap-3 shrink-0 lg:ml-auto">
+        <button
+          id="cookie-decline"
+          class="px-6 py-3 border border-white/20 text-white text-[11px] tracking-[0.2em] uppercase font-light hover:border-white/50 transition-colors"
+        >
+          Weigeren
+        </button>
+        <button
+          id="cookie-accept"
+          class="px-6 py-3 bg-[#D4AF37] text-black text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors"
+        >
+          Accepteren
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const KEY = 'ctms-cookie-consent';
+  const banner = document.getElementById('cookie-banner');
+
+  // Toon de banner alleen als er nog geen keuze is opgeslagen.
+  try {
+    if (!localStorage.getItem(KEY)) {
+      banner?.classList.remove('hidden');
+    }
+  } catch (e) {
+    // localStorage niet beschikbaar (bijv. privémodus): toon de banner sowieso.
+    banner?.classList.remove('hidden');
+  }
+
+  function choose(value: 'accepted' | 'declined') {
+    try {
+      localStorage.setItem(KEY, value);
+    } catch (e) {
+      /* stil falen als opslag geblokkeerd is */
+    }
+    banner?.classList.add('hidden');
+  }
+
+  document.getElementById('cookie-accept')?.addEventListener('click', () => choose('accepted'));
+  document.getElementById('cookie-decline')?.addEventListener('click', () => choose('declined'));
+</script>
