@@ -5,9 +5,9 @@ import { IMG } from '@/lib/images';
 import { WHATSAPP_URL } from '@/lib/booking';
 
 const services = [
-  { icon: 'lucide:camera', title: 'Vastgoed', sub: 'Fotografie & video', body: 'Verkoop panden sneller met cinematische beelden die een listing in verlangen veranderen.', link: '/real-estate', img: IMG.realEstate[0] },
-  { icon: 'lucide:sparkles', title: 'Personal brand', sub: 'Content & strategie', body: 'Positioneer jezelf als dé autoriteit in je vakgebied met consistente, premium content.', link: '/content-creation', img: IMG.branding[0] },
-  { icon: 'lucide:video', title: 'Merkverhaal', sub: 'Strategische films', body: 'Langere storytelling die door de tijd heen vertrouwen opbouwt bij de juiste klant.', link: '/services', img: IMG.business[0] },
+  { icon: 'lucide:camera', title: 'Vastgoed', sub: 'Fotografie & video', body: 'Verkoop panden sneller met cinematische beelden die een listing in verlangen veranderen.', link: '/real-estate', img: '/homepage-wat-vastgoed.jpg', pos: 'object-center' },
+  { icon: 'lucide:sparkles', title: 'Personal brand', sub: 'Content & strategie', body: 'Positioneer jezelf als dé autoriteit in je vakgebied met consistente, premium content.', link: '/content-creation', img: '/homepage-wat-personal.jpg', pos: 'object-[50%_28%]' },
+  { icon: 'lucide:video', title: 'Merkverhaal', sub: 'Strategische films', body: 'Langere storytelling die door de tijd heen vertrouwen opbouwt bij de juiste klant.', link: '/services', img: '/homepage-wat-merkverhaal.jpg', pos: 'object-[50%_30%]' },
 ];
 
 const processSteps = [
@@ -83,7 +83,7 @@ const testimonials = [
         {services.map((s) => (
           <a href={s.link} class="group relative bg-black p-10 lg:p-14 overflow-hidden hover:bg-zinc-950 transition-colors min-h-[480px] flex flex-col">
             <div class="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-700">
-              <img src={s.img} alt="" class="w-full h-full object-cover" />
+              <img src={s.img} alt="" class={`w-full h-full object-cover ${s.pos ?? ''}`} />
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
             </div>
             <div class="relative">
