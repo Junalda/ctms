@@ -1,13 +1,12 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
-import { IMG } from '@/lib/images';
 
 const framework = [
-  { n: '01', t: 'Positie', d: 'We bepalen de niche, het onderscheid en de boodschap die alleen jij kunt claimen.' },
-  { n: '02', t: 'Pijlers', d: 'Drie tot vijf contentpijlers die geloofwaardigheid opbouwen in plaats van viraliteit najagen.' },
-  { n: '03', t: 'Productie', d: 'Maandelijkse cinematische opnamedagen — een kwartaal aan content in één gerichte sessie.' },
-  { n: '04', t: 'Prestatie', d: 'We meten inbound, geen impressies. Content gekoppeld aan omzet, niet aan ijdelheid.' },
+  { n: '01', t: 'Positie', d: 'We bepalen jouw niche, onderscheidend vermogen en de boodschap die niemand anders geloofwaardig kan claimen.' },
+  { n: '02', t: 'Pijlers', d: 'We ontwikkelen drie tot vijf contentpijlers die autoriteit opbouwen, vertrouwen versterken en jouw expertise zichtbaar maken.' },
+  { n: '03', t: 'Productie', d: 'Maandelijkse cinematische opnamedagen waarin we in één gerichte sessie tot een kwartaal aan content produceren.' },
+  { n: '04', t: 'Prestatie', d: 'We meten wat écht telt: kwalitatieve leads, inbound aanvragen en meetbare groei. Geen focus op likes of views maar op wat echt telt.' },
 ];
 
 const retainerFeatures = [
@@ -27,13 +26,13 @@ const stats = [
 ---
 
 <BaseLayout
-  title="Personal branding & content — Een storytellingpartner | Capture the Moment Solutions"
+  title="Personal branding & content: een storytellingpartner | Capture the Moment Solutions"
   description="Voor oprichters, creators en ambitieuze professionals die een merk bouwen dat het waard is om te volgen. De Trust Compounding Method™."
 >
   {/* Hero */}
   <section class="relative pt-40 pb-24 bg-black overflow-hidden">
     <div class="absolute inset-0 opacity-30">
-      <img src={IMG.branding[1]} alt="" class="w-full h-full object-cover" />
+      <img src="/content-hero.jpg" alt="" class="w-full h-full object-cover object-[50%_46%]" />
       <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black"></div>
     </div>
     <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10">
@@ -43,7 +42,7 @@ const stats = [
         <span class="italic font-light">Een storytellingpartner.</span>
       </h1>
       <p class="mt-10 max-w-2xl text-lg md:text-xl text-white/70 font-light">
-        Voor oprichters, creators en ambitieuze professionals die een merk bouwen dat het volgen waard blijft — lang nadat de trendcyclus verder is getrokken.
+        Voor oprichters, creators en ambitieuze professionals die een merk bouwen dat het volgen waard blijft, lang nadat de trendcyclus verder is getrokken.
       </p>
     </div>
   </section>
@@ -52,7 +51,7 @@ const stats = [
   <section class="bg-white text-black py-32">
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 text-center">
       <p class="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.25] italic text-zinc-800">
-        "De meeste creators runnen een contentfabriek. Wij bouwen een content<span class="not-italic text-[#9C7C2A]">portfolio</span> — assets die jarenlang voor je werken, niet dagenlang."
+        "De meeste creators runnen een contentfabriek. Wij bouwen een contentportfolio, assets die jarenlang voor je werken, niet dagenlang."
       </p>
     </div>
   </section>
@@ -88,14 +87,14 @@ const stats = [
       <div class="grid lg:grid-cols-12 gap-16 items-center">
         <div class="lg:col-span-6">
           <div class="aspect-[4/5] overflow-hidden">
-            <img src={IMG.branding[3]} alt="Merkportret" class="w-full h-full object-cover" />
+            <img src="/retainer.jpg" alt="Twee vrouwen lachend tijdens een contentopname in de studio" class="w-full h-full object-cover" />
           </div>
         </div>
         <div class="lg:col-span-6">
           <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">Het retainermodel</div>
           <h2 class="font-serif text-5xl md:text-6xl leading-tight mb-8">Eén opnamedag. Een kwartaal aan content.</h2>
           <p class="text-white/70 text-lg font-light leading-relaxed mb-8">
-            Onze retainerklanten brengen één zorgvuldig geregisseerde dag per maand met ons door. We vertrekken met 12–20 deliverables: langere films, portretbeelden, verticale reels, podcast-b-roll en merkbeeld — allemaal on-message, allemaal cinematisch, allemaal klaar om te publiceren.
+            Onze retainerklanten brengen één zorgvuldig geregisseerde dag per maand met ons door. We vertrekken met 12–20 deliverables: langere films, portretbeelden, verticale reels, podcast-b-roll en merkbeeld, allemaal on-message, allemaal cinematisch, allemaal klaar om te publiceren.
           </p>
           <ul class="space-y-3 mb-10">
             {retainerFeatures.map((f) => (
@@ -125,8 +124,8 @@ const stats = [
       <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Denken op lange termijn</div>
       <h2 class="font-serif text-5xl md:text-6xl leading-tight mb-12">We optimaliseren niet<br />voor volgende week.</h2>
       <div class="grid md:grid-cols-2 gap-12 text-white/70 font-light text-lg leading-relaxed">
-        <p>De meeste contentbureaus zijn gebouwd voor de dopamine-loop — maak meer, post meer, hoop dat er iets aanslaat. Dat model put creators uit en verwatert merken.</p>
-        <p>Ons werk is gebouwd voor een rustigere uitkomst: het moment waarop een vreemde op je profiel belandt en denkt "deze persoon is de echte." Dat is meer waard dan tien virale hits.</p>
+        <p>De meeste contentbureaus zijn gebouwd op de dopamine-loop: maak meer, post meer en hoop dat er iets aanslaat. Dat model vermoeit creators en laat merken hun identiteit verliezen.</p>
+        <p>Wij kiezen voor een andere aanpak. We bouwen aan dat ene moment waarop een vreemde op je profiel belandt en denkt: "Deze persoon weet waar ze het over hebben." Dat is uiteindelijk meer waard dan tien virale video’s die geen klanten leveren.</p>
       </div>
 
       <div class="mt-16 grid md:grid-cols-3 gap-8">
@@ -143,7 +142,7 @@ const stats = [
   {/* CTA */}
   <section class="relative py-32 overflow-hidden">
     <div class="absolute inset-0">
-      <img src={IMG.branding[0]} alt="" class="w-full h-full object-cover" />
+      <img src="/content-cta.jpg" alt="" class="w-full h-full object-cover object-[50%_30%]" />
       <div class="absolute inset-0 bg-black/80"></div>
     </div>
     <div class="relative max-w-3xl mx-auto px-6 text-center">

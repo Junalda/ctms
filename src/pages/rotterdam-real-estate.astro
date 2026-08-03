@@ -12,7 +12,7 @@ const proof = [
 ];
 
 const reasons = [
-  { t: 'We kennen de Rotterdamse koper', d: 'Van penthouses op de Wilhelminapier tot villa’s aan de Kralingse Plas — we weten waar lokale kopers visueel op reageren.' },
+  { t: 'We kennen de Rotterdamse koper', d: 'Van penthouses op de Wilhelminapier tot villa’s aan de Kralingse Plas, we weten waar lokale kopers visueel op reageren.' },
   { t: 'Ter plekke binnen 48 uur', d: 'Tijdgevoelige listing? Meestal kunnen we binnen twee werkdagen fotograferen, door de hele Randstad.' },
   { t: 'Funda-geoptimaliseerde levering', d: 'Beeldformaten, verhoudingen en oriëntaties gemaakt voor maximale prestatie op Funda, Pararius en je eigen site.' },
   { t: 'Retainers voor kantoren', d: 'Volumegebaseerde tarieven voor kantoren die 5+ listings per maand sluiten. Voorspelbare kosten, premium output.' },
@@ -29,7 +29,7 @@ const ctaPoints = [
 ---
 
 <BaseLayout
-  title="Vastgoedfotografie Rotterdam — Verkoop 40% sneller | Capture the Moment Solutions"
+  title="Vastgoedfotografie Rotterdam: verkoop 40% sneller | Capture the Moment Solutions"
   description="Cinematische foto & video voor makelaars, projectontwikkelaars en beleggers in Rotterdam-Zuid, Kralingen, Hillegersberg en de Randstad. Levering binnen 48 uur."
 >
   <section class="relative pt-40 pb-24 bg-black overflow-hidden">
@@ -52,11 +52,11 @@ const ctaPoints = [
         </p>
         <div class="mt-8 flex items-center gap-3">
           <div class="flex">{[...Array(5)].map(() => <Icon name="lucide:star" width={14} height={14} class="fill-[#D4AF37] text-[#D4AF37]" />)}</div>
-          <span class="text-sm text-white/60">5,0 — op basis van 47 Google-reviews</span>
+          <span class="text-sm text-white/60">5,0 · op basis van 47 Google-reviews</span>
         </div>
 
         <div class="mt-10 flex flex-wrap items-center gap-4">
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+          <a href="/contact" class="group inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
             Plan een gesprek <Icon name="lucide:arrow-up-right" width={16} height={16} class="group-hover:rotate-45 transition-transform" />
           </a>
           <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white text-[12px] tracking-[0.2em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37]">
@@ -71,7 +71,7 @@ const ctaPoints = [
           <div id="re-done" class="text-center py-4 hidden">
             <div class="w-14 h-14 rounded-full border border-[#D4AF37] mx-auto flex items-center justify-center mb-6"><Icon name="lucide:check" class="text-[#D4AF37]" /></div>
             <h3 class="font-serif text-3xl mb-3">Nog één stap.</h3>
-            <p class="text-white/60 font-light mb-6">Kies hieronder een tijd die jou uitkomt — de bevestiging valt direct in je inbox.</p>
+            <p class="text-white/60 font-light mb-6">Kies hieronder een tijd die jou uitkomt. De bevestiging valt direct in je inbox.</p>
             <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
               Kies een slot van 30 min <Icon name="lucide:arrow-up-right" width={16} height={16} />
             </a>
@@ -87,7 +87,7 @@ const ctaPoints = [
               <button type="submit" class="w-full mt-4 py-4 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">Verder naar de agenda</button>
             </form>
             <div class="mt-6 pt-6 border-t border-white/10 text-center">
-              <span class="text-[10px] tracking-[0.3em] uppercase text-white/40">Sla het formulier over — </span>
+              <span class="text-[10px] tracking-[0.3em] uppercase text-white/40">Sla het formulier over, </span>
               <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="text-[10px] tracking-[0.3em] uppercase text-[#D4AF37] hover:text-white">boek direct →</a>
             </div>
           </div>
@@ -160,7 +160,7 @@ const ctaPoints = [
               <span class="italic font-light">deze week?</span>
             </h2>
             <p class="mt-6 text-white/70 font-light text-lg max-w-md">
-              We houden wekelijks een beperkt aantal opnameslots vrij in Rotterdam en de Randstad. Leg de jouwe hieronder vast — bevestiging is direct.
+              We houden wekelijks een beperkt aantal opnameslots vrij in Rotterdam en de Randstad. Leg de jouwe hieronder vast. Bevestiging is direct.
             </p>
             <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
               {ctaPoints.map((x) => (
@@ -172,7 +172,7 @@ const ctaPoints = [
             </div>
           </div>
           <div class="lg:col-span-5 flex flex-col gap-4">
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group w-full inline-flex items-center justify-between gap-3 px-8 py-5 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
+            <a href="/contact" class="group w-full inline-flex items-center justify-between gap-3 px-8 py-5 bg-[#D4AF37] text-black text-[12px] tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors">
               Plan een gesprek <Icon name="lucide:arrow-up-right" width={18} height={18} class="group-hover:rotate-45 transition-transform" />
             </a>
             <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="w-full inline-flex items-center justify-center gap-3 px-8 py-5 border border-white/20 text-white text-[12px] tracking-[0.2em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37]">

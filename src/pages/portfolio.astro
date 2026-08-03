@@ -1,36 +1,34 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
-import { IMG } from '@/lib/images';
 
 // Categorieën in het Nederlands; de waarde dient tegelijk als filtersleutel.
 const cats = ['Alles', 'Vastgoed', 'Personal branding', 'Merkverhalen'];
 
 const items = [
-  { id: 1, title: 'Penthouse Wijnhaven', cat: 'Vastgoed', loc: 'Rotterdam', img: IMG.realEstate[1], wide: true, desc: 'Een film- en fotocampagne voor een penthouse van €2,4 mln die de listing in elf dagen verkocht.' },
-  { id: 2, title: 'The Founder Series', cat: 'Personal branding', loc: 'Rotterdam', img: IMG.branding[1], tall: true, desc: 'Per kwartaal cinematische oprichtersportretten voor een fintech-ondernemer.' },
-  { id: 3, title: 'Atelier 14', cat: 'Vastgoed', loc: 'Delft', img: IMG.realEstate[2], desc: 'Monumentaal herenhuis, moderne restauratie. Uitgelicht in de Volkskrant.' },
-  { id: 4, title: 'Kapitaal Studio', cat: 'Merkverhalen', loc: 'Amsterdam', img: IMG.business[1], desc: 'Merkdocumentaire voor een creatief productiebedrijf.' },
-  { id: 5, title: 'Herengracht 88', cat: 'Vastgoed', loc: 'Amsterdam', img: IMG.canal[0], desc: 'Grachtenpand-listing — schemerexterieur en redactioneel interieur.' },
-  { id: 6, title: 'Meyer & Co.', cat: 'Merkverhalen', loc: 'Utrecht', img: IMG.business[0], wide: true, desc: 'Jaarlijkse merkfilm voor een Nederlands financieel adviesbureau.' },
-  { id: 7, title: 'Saskia M.', cat: 'Personal branding', loc: 'Rotterdam', img: IMG.branding[2], desc: 'Portretserie voor een CEO en een short-form contentmotor.' },
-  { id: 8, title: 'Loft Noord', cat: 'Vastgoed', loc: 'Rotterdam', img: IMG.realEstate[3], tall: true, desc: 'Industriële loftconversie — sfeervol interieur, exterieur in het gouden uur.' },
-  { id: 9, title: 'Tomás R.', cat: 'Personal branding', loc: 'Den Haag', img: IMG.branding[3], desc: 'LinkedIn-contentretainer — zes maanden, 40+ assets.' },
-  { id: 10, title: 'Huize Noord', cat: 'Vastgoed', loc: 'Rotterdam', img: IMG.realEstate[0], wide: true, desc: 'Marketing voor een luxe villa — film, beelden, schemer en lucht.' },
-  { id: 11, title: 'Atelier Nordic', cat: 'Merkverhalen', loc: 'Rotterdam', img: IMG.bts[2], desc: 'Behind-the-scenes-documentaire voor een meubelmaker.' },
-  { id: 12, title: 'Van Dam Group', cat: 'Personal branding', loc: 'Rotterdam', img: IMG.branding[0], desc: 'Makelaarsgedreven personal-brandcampagne voor een vastgoedkantoor.' },
-  { id: 13, title: 'Singel 142', cat: 'Vastgoed', loc: 'Amsterdam', img: IMG.canal[1], desc: 'Grachtenappartement in redactionele stijl gefotografeerd.' },
-  { id: 14, title: 'Nordic Haus', cat: 'Merkverhalen', loc: 'Rotterdam', img: IMG.bts[1], tall: true, desc: 'Oprichtersverhaal, productiefilm en productbeelden.' },
+  { id: 1, title: 'Uitzicht Kop van Zuid', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-uitzicht.jpg', wide: true, desc: 'Uitzicht over de Rijnhaven en de skyline van de Kop van Zuid, vastgelegd vanuit het appartement in de schemering.' },
+  { id: 2, title: 'Anytime Studio', cat: 'Personal branding', loc: 'Rotterdam', img: '/werk-anytime-studio.jpg', tall: true, desc: 'Contentcover voor Anytime Studio: aflevering 1 van een contentreeks die creators een podium geeft.' },
+  { id: 3, title: 'Woonkamer', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-woonkamer.jpg', desc: 'Ruime woonkamer met loungebank, donkere accentwand en zicht over de stad.' },
+  { id: 4, title: 'INFNTY Session', cat: 'Merkverhalen', loc: 'Rotterdam', img: '/werk-infnty-session.jpg', tall: true, desc: 'De INFNTY Session: een studiogesprek waarin creators hun verhaal delen, vastgelegd als merkstorytelling.' },
+  { id: 5, title: 'Keuken', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-keuken.jpg', desc: 'Strakke keuken met inbouwapparatuur, rvs-schouw en natuurstenen werkblad.' },
+  { id: 8, title: 'Eethoek', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-eethoek.jpg', tall: true, desc: 'Eethoek met ovale tafel, designverlichting en uitzicht op de skyline.' },
+  { id: 10, title: 'Terras', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-terras.jpg', wide: true, desc: 'Ruim terras met hangstoel en panoramisch uitzicht over Rotterdam.' },
+  { id: 13, title: 'Open leefruimte', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-leefruimte.jpg', desc: 'Open leefruimte met loungehoek, keuken en toegang tot het terras: het overzicht van de woonverdieping.' },
+  { id: 14, title: 'Keuken met accentwand', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-keuken-accent.jpg', desc: 'Strakke witte hoekkeuken met natuurstenen werkblad en inbouwapparatuur, afgezet tegen een sfeervolle accentwand in patroonbehang.' },
+  { id: 15, title: 'Balkon met stadsgezicht', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-balkon.jpg', wide: true, desc: 'Zonnig balkon met bistroset en sfeerverlichting, met uitzicht over Feijenoord — vastgelegd vanuit de woonkamer in tegenlicht.' },
+  { id: 16, title: 'Slaapkamer', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-slaapkamer.jpg', desc: 'Rustige slaapkamer met tweepersoonsbed, warme accentwand en een spiegelwand die het daglicht door de ruimte laat lopen.' },
+  { id: 17, title: 'Woonkamer met open haard', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-woonkamer-haard.jpg', wide: true, desc: 'Sfeervolle woonkamer met sierschouw, chesterfield-fauteuil en een galeriewand vol kunst, badend in het middaglicht.' },
+  { id: 18, title: 'Zithoek met uitzicht', cat: 'Vastgoed', loc: 'Rotterdam', img: '/werk-zithoek.jpg', desc: 'Karakteristieke zithoek met cognackleurige leren fauteuils en panoramische ramen richting de skyline.' },
 ];
 ---
 
 <BaseLayout
-  title="Portfolio — Een portfolio van vertrouwen | Capture the Moment Solutions"
+  title="Portfolio: een portfolio van vertrouwen | Capture the Moment Solutions"
   description="Geselecteerd werk in vastgoed, personal branding en merkverhalen. Cinematische beelden gebouwd op vertrouwen, gemaakt in Rotterdam en daarbuiten."
 >
   <section class="pt-40 pb-12 bg-black">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
-      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Geselecteerd werk · 2023 — 2026</div>
+      <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Geselecteerd werk · 2023–2026</div>
       <h1 class="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight">Een portfolio<br /><span class="italic font-light">van vertrouwen.</span></h1>
 
       <div class="mt-16 flex flex-wrap items-center gap-2 border-t border-white/10 pt-8">

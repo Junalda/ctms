@@ -1,33 +1,71 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
-import { IMG } from '@/lib/images';
 
 const packages = [
-  { name: 'Essentials', price: '€595', desc: 'Voor losse listings onder €750K', features: ['25 bewerkte foto’s', 'Verticale reel van 60s', 'Schemeropname exterieur (1)', 'Levering binnen dezelfde week', 'Klaar voor plattegrond'] },
-  { name: 'Signature', price: '€1.250', desc: 'Voor premiumpanden €750K – €2M', popular: true, features: ['45 bewerkte foto’s', 'Cinematische film van 90s', 'Drone-luchtbeelden (4K)', 'Schemer- & dageraadserie', 'Lifestyle-stagingbeelden', 'Levering binnen 48 uur'] },
-  { name: 'Collector', price: 'Op aanvraag', desc: 'Voor landgoederen, nieuwbouw en projecten', features: ['Onbeperkte fotoselectie', 'Door regisseur geleide film (2–3 min)', 'Lucht + interieur met gimbal', 'Custom soundscape', 'Assets voor de listingsite', 'Pers-klaar pakket'] },
+  {
+    name: 'Basispakket',
+    price: '€130',
+    features: [
+      '20 professionele HDR-foto’s',
+      'Verticale lijnen gecorrigeerd',
+      'Natuurlijke kleurcorrectie',
+      'Oplevering binnen 24 tot 48 uur',
+      'Exclusief gebruik voor woningpresentaties (Funda, social media en vergelijkbare kanalen)',
+    ],
+    fit: 'Snelle plaatsing van woningen met sterke en betrouwbare beelden.',
+  },
+  {
+    name: 'Pluspakket',
+    price: '€165',
+    features: [
+      '25 professionele HDR-foto’s',
+      'Verticale lijnen gecorrigeerd',
+      '360° foto’s van 3 tot 5 ruimtes',
+      'Oplevering binnen 24 tot 48 uur',
+      'Exclusief gebruik voor woningpresentaties (Funda, social media en vergelijkbare kanalen)',
+    ],
+    fit: 'Woningen waarbij extra presentatie en online beleving gewenst is.',
+  },
+  {
+    name: 'Groot Pakket',
+    price: '€210',
+    features: [
+      '30+ professionele HDR-foto’s',
+      'Extra aandacht voor licht, ruimte en overzicht',
+      'Focus op maximale beeldkwaliteit',
+      '360° foto’s van circa 5 tot 7 ruimtes',
+      'Oplevering binnen 24 tot 48 uur',
+      'Exclusief gebruik voor woningpresentaties (Funda, social media en vergelijkbare kanalen)',
+    ],
+    fit: 'Gezinswoningen, villa’s, luxe woningen en woningen vanaf circa 160 m².',
+  },
+];
+
+const extras = [
+  { t: 'Spoedoplevering', price: '+ €25', d: 'Oplevering op dezelfde dag.' },
+  { t: 'Fotoshoot in het weekend', price: '+ €25', d: '' },
+  { t: 'Reiskosten', price: '€0,35 / km', d: 'Eerste 15 kilometer inbegrepen, daarna €0,35 per kilometer.' },
+];
+
+const voorwaarden = [
+  'Alle prijzen zijn exclusief btw.',
+  'Voor woningen groter dan 200 m² wordt een maatwerkofferte opgesteld.',
+  'Voor specifieke wensen of afwijkende opdrachten wordt een maatwerkofferte opgesteld.',
 ];
 
 const faqs = [
-  { q: 'Hoe snel leveren jullie?', a: 'Essentials-pakketten worden binnen vijf werkdagen geleverd. Signature-shoots leveren we binnen 48 uur. Collector-projecten volgen een op maat afgesproken planning.' },
-  { q: 'Werken jullie buiten Rotterdam?', a: 'Ja — we dekken de hele Randstad (Rotterdam, Den Haag, Amsterdam, Utrecht en Delft) zonder reistoeslag. Daarbuiten offreren we per project.' },
-  { q: 'Kunnen jullie bewoonde woningen fotograferen?', a: 'Absoluut. We brengen lichte styling mee, ruimen ter plekke op en regisseren de shoot zodat een bewoond huis aanvoelt als een redactionele reportage.' },
-  { q: 'Verzorgen jullie dronewerk?', a: 'Ja — volledig verzekerd, met een CAA-NL-gecertificeerde piloot. Inbegrepen bij de Signature- en Collector-pakketten.' },
-  { q: 'Leveren jullie plattegronden?', a: 'We werken samen met een meetstudio voor 2D- en 3D-plattegronden binnen 72 uur na de shoot — beschikbaar als add-on.' },
-  { q: 'Wat als het weer slecht is?', a: 'Schemer- en buitenopnames zijn weersafhankelijk en worden kosteloos verzet. We volgen de weersverwachting 48 uur vooruit en plannen proactief om.' },
-];
-
-const proof = [
-  { v: '40%', l: 'Sneller verkocht' },
-  { v: '3,2×', l: 'Meer aanvragen per listing' },
-  { v: '120+', l: 'Panden geschoten in 2025' },
-  { v: '48u', l: 'Gemiddelde levering' },
+  { q: 'Hoe snel leveren jullie?', a: 'De standaard levertijd is 24 tot 48 uur na de fotoshoot. Heb je het sneller nodig? Met spoedoplevering leveren we op dezelfde dag, tegen een meerprijs van €25 (excl. btw) en afhankelijk van beschikbaarheid.' },
+  { q: 'Werken jullie buiten Rotterdam?', a: 'Zeker. De eerste 15 kilometer zijn inbegrepen; daarna rekenen we €0,35 per kilometer, zodat het ook buiten Rotterdam transparant blijft.' },
+  { q: 'Kunnen jullie bewoonde woningen fotograferen?', a: 'Zeker. Voor het beste resultaat vragen we de woning bij aankomst gereed te maken voor fotografie. Opruim- of stylingwerkzaamheden vallen niet onder de standaard dienstverlening, maar we denken graag mee over de presentatie.' },
+  { q: 'Kan ik de foto’s laten aanpassen?', a: 'Ja. Bij elke oplevering zit één kosteloze herzieningsronde inbegrepen, binnen 7 dagen na levering, voor redelijke correcties zoals helderheid, kleur of uitsnede. Aanvullende revisies rekenen we tegen €22,50 (excl. btw) per uur nabewerking.' },
+  { q: 'Fotograferen jullie ook in het weekend?', a: 'Ja, ook in het weekend. Hiervoor geldt een meerprijs van €25 (excl. btw), afhankelijk van beschikbaarheid.' },
+  { q: 'Wat als het weer slecht is?', a: 'Buitenopnames zijn weersafhankelijk. Bij slechte omstandigheden verplaatsen we de afspraak in overleg, wanneer dat de kwaliteit van de beelden ten goede komt.' },
 ];
 
 const economics = [
   { i: 'lucide:clock', t: 'Tijd op de markt', d: 'Professioneel gefotografeerde listings gaan 40% sneller op Funda en MLS-portalen.' },
-  { i: 'lucide:trending-up', t: 'Vraagprijs', d: 'Premiumbeelden ondersteunen een 2–7% hogere vraagprijs — en beschermen die in de onderhandeling.' },
+  { i: 'lucide:trending-up', t: 'Vraagprijs', d: 'Premiumbeelden ondersteunen een 2–7% hogere vraagprijs, en beschermen die in de onderhandeling.' },
   { i: 'lucide:users', t: 'Gekwalificeerde leads', d: 'De juiste kopers klikken. De verkeerde haken vanzelf af. Minder verspilde bezichtigingen.' },
   { i: 'lucide:award', t: 'Positionering makelaar', d: 'Je listings worden meteen een wervingsmiddel voor de volgende verkoper.' },
 ];
@@ -40,7 +78,7 @@ const economics = [
   {/* Hero */}
   <section class="relative pt-40 pb-20 bg-black overflow-hidden">
     <div class="absolute inset-0 opacity-40">
-      <img src={IMG.realEstate[1]} alt="" class="w-full h-full object-cover" />
+      <img src="/vastgoed-hero.jpg" alt="" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black"></div>
     </div>
     <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10">
@@ -58,15 +96,6 @@ const economics = [
         </a>
         <a href="#packages" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white text-[12px] tracking-[0.2em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37]">Bekijk pakketten</a>
       </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t border-white/10">
-        {proof.map((s) => (
-          <div>
-            <div class="font-serif text-5xl text-[#D4AF37]">{s.v}</div>
-            <div class="text-xs tracking-[0.2em] uppercase text-white/50 mt-2">{s.l}</div>
-          </div>
-        ))}
-      </div>
     </div>
   </section>
 
@@ -80,17 +109,17 @@ const economics = [
       </div>
 
       <div class="relative aspect-[16/9] overflow-hidden bg-zinc-900 select-none">
-        <img src={IMG.realEstate[2]} alt="Na" class="absolute inset-0 w-full h-full object-cover" />
+        <img src="/vastgoed-na.jpg" alt="Na" class="absolute inset-0 w-full h-full object-cover" />
         <div id="ba-overlay" class="absolute inset-0 overflow-hidden" style="width: 50%">
-          <img id="ba-before" src={IMG.realEstate[3]} alt="Voor" class="absolute inset-0 w-full h-full object-cover grayscale brightness-75" style="width: 200%" />
+          <img id="ba-before" src="/vastgoed-voor.jpg" alt="Voor" class="absolute inset-0 w-full h-full object-cover grayscale brightness-75" style="width: 200%" />
         </div>
         <div id="ba-divider" class="absolute top-0 bottom-0 w-px bg-white shadow-2xl pointer-events-none" style="left: 50%">
           <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-2 border-[#D4AF37] flex items-center justify-center">
             <div class="flex gap-0.5"><div class="w-1 h-4 bg-[#D4AF37]"></div><div class="w-1 h-4 bg-[#D4AF37]"></div></div>
           </div>
         </div>
-        <div class="absolute top-6 left-6 bg-black/70 text-white text-[10px] tracking-[0.3em] uppercase px-3 py-1.5">Voor — Smartphone</div>
-        <div class="absolute top-6 right-6 bg-[#D4AF37] text-black text-[10px] tracking-[0.3em] uppercase px-3 py-1.5">Na — Studio</div>
+        <div class="absolute top-6 left-6 bg-black/70 text-white text-[10px] tracking-[0.3em] uppercase px-3 py-1.5">Voor · Smartphone</div>
+        <div class="absolute top-6 right-6 bg-[#D4AF37] text-black text-[10px] tracking-[0.3em] uppercase px-3 py-1.5">Na · Studio</div>
         <input id="ba-range" type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize" aria-label="Voor/na-schuif" />
       </div>
     </div>
@@ -106,7 +135,6 @@ const economics = [
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {economics.map((b) => (
           <div class="border-t border-white/10 pt-6">
-            <Icon name={b.i} width={20} height={20} stroke-width="1.25" class="text-[#D4AF37] mb-6" />
             <h3 class="font-serif text-2xl mb-3">{b.t}</h3>
             <p class="text-white/60 text-sm font-light leading-relaxed">{b.d}</p>
           </div>
@@ -121,25 +149,56 @@ const economics = [
       <div class="text-center max-w-2xl mx-auto mb-20">
         <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">Tarieven</div>
         <h2 class="font-serif text-5xl md:text-6xl leading-tight">Eerlijke pakketten. Geen verrassingen.</h2>
-        <p class="mt-6 text-white/60 font-light text-lg">Alle pakketten zijn inclusief licentie voor marketing, social en listingportalen.</p>
+        <p class="mt-6 text-white/60 font-light text-lg">Vaste tarieven, afgestemd op wat je woning nodig heeft. Alle prijzen zijn exclusief btw.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-px bg-white/5">
         {packages.map((p) => (
-          <div class={`bg-zinc-950 p-10 lg:p-12 flex flex-col ${p.popular ? 'ring-1 ring-[#D4AF37] relative' : ''}`}>
-            {p.popular && <div class="absolute -top-3 left-10 bg-[#D4AF37] text-black text-[10px] tracking-[0.3em] uppercase px-3 py-1">Meest geboekt</div>}
-            <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-4">{p.desc}</div>
+          <div class="bg-zinc-950 p-10 lg:p-12 flex flex-col">
             <h3 class="font-serif text-4xl mb-2">{p.name}</h3>
-            <div class="font-serif text-5xl text-[#D4AF37] mb-8">{p.price}</div>
-            <ul class="space-y-3 mb-10 flex-1">
+            <div class="flex items-baseline gap-2 mb-8">
+              <span class="font-serif text-5xl text-[#D4AF37]">{p.price}</span>
+              <span class="text-xs tracking-wide text-white/40">excl. btw</span>
+            </div>
+            <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-4">Inbegrepen</div>
+            <ul class="space-y-3 mb-8">
               {p.features.map((f) => (
                 <li class="flex items-start gap-3 text-sm text-white/70 font-light">
                   <Icon name="lucide:check" width={16} height={16} class="text-[#D4AF37] mt-0.5 flex-shrink-0" />{f}
                 </li>
               ))}
             </ul>
-            <a href="/contact" class={`text-center px-6 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-colors ${p.popular ? 'bg-[#D4AF37] text-black hover:bg-white' : 'border border-white/20 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]'}`}>Reserveren</a>
+            <div class="border-t border-white/10 pt-6 mb-8">
+              <div class="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-2">Geschikt voor</div>
+              <p class="text-sm text-white/60 font-light leading-relaxed">{p.fit}</p>
+            </div>
+            <a href="/contact" class="mt-auto text-center px-6 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-colors border border-white/20 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]">Reserveren</a>
           </div>
         ))}
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 max-w-4xl mx-auto mt-20 pt-16 border-t border-white/10">
+        <div>
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Optionele extra’s</div>
+          <ul class="space-y-6">
+            {extras.map((e) => (
+              <li class="border-b border-white/10 pb-6">
+                <div class="flex items-baseline justify-between gap-4">
+                  <span class="font-serif text-xl text-white">{e.t}</span>
+                  <span class="text-[#D4AF37] font-light whitespace-nowrap">{e.price}</span>
+                </div>
+                {e.d && <p class="text-sm text-white/50 font-light mt-1">{e.d}</p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div class="text-[11px] tracking-[0.4em] uppercase text-[#D4AF37] mb-8">Belangrijke voorwaarden</div>
+          <ul class="space-y-4 text-white/60 font-light">
+            {voorwaarden.map((v) => (
+              <li class="flex items-start gap-3"><Icon name="lucide:check" width={16} height={16} class="text-[#D4AF37] mt-1 flex-shrink-0" />{v}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -171,7 +230,7 @@ const economics = [
   {/* CTA */}
   <section class="relative py-32 overflow-hidden">
     <div class="absolute inset-0">
-      <img src={IMG.realEstate[0]} alt="" class="w-full h-full object-cover" />
+      <img src="/vastgoed-cta.jpg" alt="" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-black/80"></div>
     </div>
     <div class="relative max-w-3xl mx-auto px-6 text-center">

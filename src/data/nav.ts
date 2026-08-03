@@ -26,6 +26,6 @@ export const footerStudio = [
 ];
 
 export const footerLocations = [
-  { name: 'Rotterdam — Vastgoed', to: '/rotterdam-real-estate' },
-  { name: 'Rotterdam — Branding', to: '/rotterdam-personal-branding' },
+  { name: 'Rotterdam Vastgoed', to: '/rotterdam-real-estate' },
+  { name: 'Rotterdam Branding', to: '/rotterdam-personal-branding' },
 ];
